@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\User;
 
 /**
- * Class AdminRepository
+ * Class UserRepository
  * @package App\Repositories
  */
 class UserRepository extends BaseRepository
