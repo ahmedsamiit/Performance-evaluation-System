@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Description of BaseRepository
  *
- * @author Ahmed Helal Ahmed
+ * @author Ahmed sami Ahmed
  */
 class BaseRepository
 {
@@ -35,7 +35,7 @@ class BaseRepository
      * @param $name
      * @param $arguments
      * @return mixed
-     * @author Ahmed Helal Ahmed
+     * @author Ahmed sami Ahmed
      * to gel all methods of model here
      */
     public function __call($name, $arguments)
@@ -82,7 +82,7 @@ class BaseRepository
     /**
      * @param int $id
      * @return mixed
-     * @author Ahmed Helal Ahmed
+     * @author Ahmed sami Ahmed
      */
     public function getById(int $id)
     {
@@ -133,7 +133,7 @@ class BaseRepository
      * @param $key
      * @param $date
      * @return mixed
-     * @author Ahmed Helal Ahmed
+     * @author Ahmed sami Ahmed
      */
     public function updateOrCreate($key, $date)
     {
@@ -166,7 +166,7 @@ class BaseRepository
      * @param int $id
      * @param array $date
      * @return Model
-     * @author Ahmed Helal Ahmed
+     * @author Ahmed sami Ahmed
      */
     public function update(int $id, array $date):Model
     {

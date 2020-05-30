@@ -22,8 +22,8 @@ Route::get('/users', 'UserController@index');
 // create one user
 Route::post('/user', 'UserController@store');
 // list single user
-Route::get('/user/{id}', 'UserController@show');
+//Route::get('/user/{id}', 'UserController@show');
 // edit user
 Route::put('/user/{id}', 'UserController@store');
 //delete user
-Route::delete('/users/{id}', 'UserController@destroy');
+Route::get('/user/{id}', 'UserController@destroy');
