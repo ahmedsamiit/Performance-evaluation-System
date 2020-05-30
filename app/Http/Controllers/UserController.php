@@ -27,8 +27,9 @@ class UserController extends Controller
         return $service->execute($id);
     }
 
-    public function destroy($id, DeletingUserService $service)
+    public function destroy( $id, DeletingUserService $service)
     {
+
 
 
         return $service->execute($id);

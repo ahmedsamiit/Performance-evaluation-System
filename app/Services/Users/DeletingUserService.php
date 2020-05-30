@@ -26,8 +26,9 @@ class DeletingUserService
      *
      * @return array
      */
-    public function execute(int $id)
+    public function execute($id) : bool
     {
-        return $this->repo->delete($id);
+
+        return $this->repo->getById($id)->delete();
     }
 }
