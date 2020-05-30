@@ -110,7 +110,7 @@ class BaseRepository
     /**
      * @return mixed
      */
-    public function getAllUsers()
+    public function getAll()
     {
         return $this->model->get();
     }

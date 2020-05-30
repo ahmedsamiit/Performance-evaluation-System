@@ -27,3 +27,14 @@ Route::get('/user/{id}', 'UserController@show');
 Route::put('/user/{id}', 'UserController@update');
 //delete user
 Route::delete('/user/{id}', 'UserController@destroy');
+//list roles
+Route::get('/roles', 'RoleController@index');
+// create one role
+Route::post('/role', 'RoleController@store');
+// list single role
+Route::get('/role/{id}', 'RoleController@show');
+// edit role
+Route::put('/role/{id}', 'RoleController@update');
+//delete role
+Route::delete('/role/{id}', 'RoleController@destroy');
+

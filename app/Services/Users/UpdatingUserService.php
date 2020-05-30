@@ -36,8 +36,8 @@ class UpdatingUserService
         $data = $request->all();
 
 
-        // if($request->image_path){
-        //     $data['image_path'] = Upload::public_uploads($request->image_path, Product::DIR);
+        // if($request->avtar){
+        //     $data['avtar'] = Upload::public_uploads($request->image_path, Product::DIR);
         // }
 
 
