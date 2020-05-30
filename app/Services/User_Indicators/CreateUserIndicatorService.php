@@ -14,9 +14,9 @@ class CreateUserIndicatorService{
         $this->repo = $repo;
     }
 
-    public function execute()
+    public function execute(Request $request)
     {
-        return $this->repo->create();
+        return $this->repo->create($request);
     }
 
 }
