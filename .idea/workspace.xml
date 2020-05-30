@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51a0d140-77b1-40c2-93d2-7e3be203a5eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Indicator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Indicator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +145,7 @@
       <option name="presentableId" value="Default" />
       <updated>1590869515007</updated>
       <workItem from="1590869520191" duration="54000" />
-      <workItem from="1590869577702" duration="6955000" />
+      <workItem from="1590869577702" duration="9122000" />
     </task>
     <servers />
   </component>
@@ -150,6 +153,14 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="500" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590879675472">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="500" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1590879675472" />
+    <state x="502" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590880109000">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="502" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1590880109000" />
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590873100803">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

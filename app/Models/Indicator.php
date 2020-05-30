@@ -7,10 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Indicator extends Model
 {
     protected $fillable = [
-        'name'
+        'name',
+        'criteria_id',
+        'is_positive',
     ];
     protected $hidden = [
         'created_at',
         'updated_at',
     ];
+
+    public function criteria()
+    {
+        return $this->belongsTo('App\Criteria');
+    }
 }
