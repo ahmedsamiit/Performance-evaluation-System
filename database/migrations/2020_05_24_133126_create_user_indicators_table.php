@@ -19,8 +19,7 @@ class CreateUserIndicatorsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('indicator_id');
             $table->foreign('indicator_id')->references('id')->on('indicators');
-            $table->unsignedBigInteger
-            ('cycle_id');
+            $table->unsignedBigInteger('cycle_id');
             $table->foreign('cycle_id')->references('id')->on('evaluation_cycles');
             $table->unsignedInteger('value');
             $table->timestamps();
