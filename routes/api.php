@@ -38,3 +38,10 @@ Route::put('/role/{id}', 'RoleController@update');
 //delete role
 Route::delete('/role/{id}', 'RoleController@destroy');
 
+
+// user_indicators middleware
+Route::post('/evaluation', 'User_IndicatorController@create');
+//list indicators for specific user
+Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
+
+
