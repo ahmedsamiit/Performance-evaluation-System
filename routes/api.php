@@ -45,3 +45,12 @@ Route::post('/evaluation', 'User_IndicatorController@create');
 Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
 
 
+Route::get('/criterias', 'CriteriaController@index');
+// create one role
+Route::post('/criteria', 'CriteriaController@store');
+// list single role
+Route::get('/criteria/{id}', 'CriteriaController@show');
+// edit role
+Route::put('/criteria/{id}', 'CriteriaController@update');
+//delete role
+Route::delete('/criteria/{id}', 'CriteriaController@destroy');
