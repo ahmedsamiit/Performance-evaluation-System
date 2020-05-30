@@ -6,7 +6,7 @@ use App\Abstracts\AbstractRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Repositories\UserRepository;
 use App\Http\Requests\StoringUser;
-
+use GuzzleHttp\Psr7\UploadedFile;
 
 class StoringUserService
 {
@@ -34,9 +34,13 @@ class StoringUserService
     public function execute(Request $request)
     {
         $data = $request->all();
-        // if($request->image_path){
-        //     $data['image_path'] = Upload::public_uploads($request->image_path, Product::DIR);
-        // }
+        if($request->avtar){
+
+            $file = $request->avtar;
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images' , $name);
+
+        }
         $user = $this->repo->create($data);
         if($user){
             return  response()->json($user);
