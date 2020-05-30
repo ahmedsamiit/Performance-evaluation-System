@@ -2,7 +2,10 @@
 
 namespace App\Repositories;
 
-use App\BaseEvaluationRepository;
+use Illuminate\Database\Eloquent\Model;
+
+use App\Repositories\BaseEvaluationRepository;
+;
 
 class EvaluationRepository implements BaseEvaluationRepository{
     private $model = null;
@@ -15,8 +18,9 @@ class EvaluationRepository implements BaseEvaluationRepository{
         return $this->model->create($attributes);
     }
     public function getByUserAndCycle($user_id, $cycle_id){
-        return $this->model->where ([  ['user_id','=','$user_id'],
-                                       ['cycle_id','=','$cycle_id'],])->get();
+        return $this->model->where ('user_id',$user_id )
+        ->where('cycle_id', $cycle_id)
+        ->get();
     }
     // public function update($id, array $attributes){
 

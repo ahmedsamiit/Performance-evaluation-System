@@ -2,21 +2,26 @@
 
 namespace App\Services\User_Indicators;
 
+use App\Http\Resources\User;
 use App\Repositories\EvaluationRepository;
-
+use Illuminate\Http\Request;
+use App\Models\UserIndicator;
 
 class CreateUserIndicatorService{
 
     protected $repo;
 
-    public function __construct(EvaluationRepository $repo)
+    public function __construct()
     {
-        $this->repo = $repo;
+        $user_indicator=new UserIndicator();
+        // EvaluationRepository $repo
+        $this->repo = new EvaluationRepository($user_indicator); 
     }
 
     public function execute(Request $request)
-    {
-        return $this->repo->create($request);
+    {   
+        $data = $request->all(); 
+        return $this->repo->create($data);
     }
 
 }
