@@ -55,12 +55,12 @@ Route::put('/criteria/{id}', 'CriteriaController@update');
 
 Route::delete('/criteria/{id}', 'CriteriaController@destroy');
 
-Route::get('/indicators', 'CriteriaController@index');
+Route::get('/indicators', 'IndicatorController@index');
 
-Route::post('/indicator', 'CriteriaController@store');
+Route::post('/indicator', 'IndicatorController@store');
 
-Route::get('/indicator/{id}', 'CriteriaController@show');
+Route::get('/indicator/{id}', 'IndicatorController@show');
 
-Route::put('/indicator/{id}', 'CriteriaController@update');
+Route::put('/indicator/{id}', 'IndicatorController@update');
 
-Route::delete('/indicator/{id}', 'CriteriaController@destroy');
+Route::delete('/indicator/{id}', 'IndicatorController@destroy');

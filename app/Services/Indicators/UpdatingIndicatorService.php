@@ -12,7 +12,7 @@ class UpdatingIndicatorService
 
 
     /**
-     * Creating criteriaService instance
+     * Creating indicatorService instance
      *
      * @param indicatorrepository $repo
      */

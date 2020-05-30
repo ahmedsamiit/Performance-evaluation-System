@@ -9,7 +9,7 @@ class RetrievingAllIndicatorsService
     protected $repo;
 
     /**
-     * Creating criteriaService instance
+     * Creating indicatorService instance
      *
      * @param indicatorrepository $repo
      */
