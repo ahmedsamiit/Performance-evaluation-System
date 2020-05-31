@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::middleware([ 'JsonResponse'])->group(function () {
+Route::middleware([ 'auth:sanctum','JsonResponse'])->group(function () {
 
+    //list users
     Route::get('/users', 'UserController@index');
     // create one user
     Route::post('/user', 'UserController@store');
@@ -39,7 +40,7 @@ Route::middleware([ 'JsonResponse'])->group(function () {
     //delete role
     Route::delete('/role/{id}', 'RoleController@destroy');
 });
-//list users
+Route::post('/sanctum/token', 'GenerateTaken');
 
 
 
