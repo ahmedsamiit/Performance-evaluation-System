@@ -9,7 +9,7 @@ class RetrievingCriteriaService
     protected $repo;
 
     /**
-     * Creating RoleService instance
+     * Creating CriteraService instance
      *
      * @param criteriarepository $repo
      */

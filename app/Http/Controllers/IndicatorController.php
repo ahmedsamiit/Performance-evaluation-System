@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 
@@ -13,6 +12,7 @@ use App\Services\Indicators\DeletingIndicatorService;
 
 class IndicatorController extends Controller
 {
+
     public function index(RetrievingAllIndicatorsService $service, Request $request)
     {
         return $service->execute();
