@@ -26,6 +26,6 @@ class RetrievingAllUsersService
      */
     public function execute()
     {
-        return $this->repo->getAllUsers();
+        return $this->repo->getAll();
     }
 }
