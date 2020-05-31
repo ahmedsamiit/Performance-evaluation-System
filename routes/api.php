@@ -17,26 +17,30 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+Route::middleware([ 'JsonResponse'])->group(function () {
+
+    Route::get('/users', 'UserController@index');
+    // create one user
+    Route::post('/user', 'UserController@store');
+    // list single user
+    Route::get('/user/{user}', 'UserController@show');
+    // edit user
+    Route::put('/user/{user}', 'UserController@update');
+    //delete user
+    Route::delete('/user/{user}', 'UserController@destroy');
+    //list roles
+    Route::get('/roles', 'RoleController@index');
+    // create one role
+    Route::post('/role', 'RoleController@store');
+    // list single role
+    Route::get('/role/{id}', 'RoleController@show');
+    // edit role
+    Route::put('/role/{id}', 'RoleController@update');
+    //delete role
+    Route::delete('/role/{id}', 'RoleController@destroy');
+});
 //list users
-Route::get('/users', 'UserController@index');
-// create one user
-Route::post('/user', 'UserController@store');
-// list single user
-Route::get('/user/{id}', 'UserController@show');
-// edit user
-Route::put('/user/{id}', 'UserController@update');
-//delete user
-Route::delete('/user/{id}', 'UserController@destroy');
-//list roles
-Route::get('/roles', 'RoleController@index');
-// create one role
-Route::post('/role', 'RoleController@store');
-// list single role
-Route::get('/role/{id}', 'RoleController@show');
-// edit role
-Route::put('/role/{id}', 'RoleController@update');
-//delete role
-Route::delete('/role/{id}', 'RoleController@destroy');
+
 
 
 // user_indicators middleware

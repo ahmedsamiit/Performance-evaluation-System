@@ -13,7 +13,7 @@ class StoringUser extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,11 +24,12 @@ class StoringUser extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
-            'email'=>'required',
-            'supervisor'=>'required',
-            'hiring-date'=>'required',
-            'password'=>'required'
+            'name'=>'required|min:3|max:50',
+            'email'=>'required|email|unique:users',
+            'avatar'=>'required',
+            'hiring-date'=>'required|date',
+            'supervisor'=>'required|integer',
+            'password'=>'required|min:6'
         ];
     }
 }
