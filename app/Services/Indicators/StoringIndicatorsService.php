@@ -24,14 +24,15 @@ class  StoringIndicatorsService
 
 
     /**
-     * soring  indicator service
+     * storing  indicator service
      *
      *
+     * @param array $request
      * @return array
      */
-    public function execute(Request $request)
+    public function execute(array $request)
     {
-        $data = $request->all();
+        $data = $request;
 
         $indicator = $this->repo->create($data);
         if($indicator){

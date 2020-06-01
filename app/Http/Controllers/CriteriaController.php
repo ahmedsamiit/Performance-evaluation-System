@@ -8,6 +8,7 @@ use App\Services\Criterias\RetrievingCriteriaService;
 use App\Services\Criterias\StoringCriteriaService;
 use App\Services\Criterias\UpdatingCriteriaService;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCriteriaRequest;
 
 class CriteriaController extends Controller
 {
@@ -16,9 +17,10 @@ class CriteriaController extends Controller
         return  $service->execute();
     }
 
-    public function store(Request $request ,StoringCriteriaService $service)
+    public function store(StoreCriteriaRequest $request ,StoringCriteriaService $service)
     {
-        return $service->execute($request);
+
+        return $service->execute($request->validated());
 
     }
     public function destroy( $id,DeletingCriteriaService $service)

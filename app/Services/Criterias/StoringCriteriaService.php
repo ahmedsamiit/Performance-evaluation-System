@@ -2,6 +2,7 @@
 
 namespace App\Services\Criterias;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCriteriaRequest;
 
 use App\Repositories\CriteriaRepository;
 
@@ -24,14 +25,17 @@ class  StoringCriteriaService
 
 
     /**
-     * soring  criteria service
+     * storing  criteria service
      *
      *
+     *
+     * @param array $request
      * @return array
      */
-    public function execute(Request $request)
+    public function execute(array $request)
     {
-        $data = $request->all();
+
+        $data = $request;
 
         $criteria = $this->repo->create($data);
         if($criteria){
@@ -40,6 +44,8 @@ class  StoringCriteriaService
         return false;
 
     }
+
+
 
 
 }
