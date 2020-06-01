@@ -15,12 +15,12 @@ class CreateEvaluationCyclesTable extends Migration
     {
         Schema::create('evaluation_cycles', function (Blueprint $table) {
             $table->id();
-            $table->string('cycle');
+            $table->integer('cycle');
             $table->boolean('is_current');
-            $table->timestamps();
+            $table->timestamp('start');
+            $table->timestamp('end')->nullable();
         });
     }
-
     /**
      * Reverse the migrations.
      *
