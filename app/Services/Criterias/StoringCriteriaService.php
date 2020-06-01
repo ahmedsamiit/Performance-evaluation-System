@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Services\Criterias;
-use Illuminate\Http\Request;
-use App\Http\Requests\StoreCriteriaRequest;
-
 use App\Repositories\CriteriaRepository;
 
 

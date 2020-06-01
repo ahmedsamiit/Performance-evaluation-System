@@ -26,16 +26,17 @@ class UpdatingCriteriaService
     /**
      * update criteria service
      *
-
+     * @param $id
+     * @param array $request
      * @return array
      */
-    public function execute($id, Request $request)
+    public function execute($id, array $request)
     {
-        $data = $request->all();
+        $data = $request;
 
 
         if($this->repo->getById($id)->update($data)){
-             return  response()->json($data);
+            return  response()->json($data);
         }
         return false;
     }
