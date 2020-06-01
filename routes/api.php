@@ -17,26 +17,31 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-//list users
-Route::get('/users', 'UserController@index');
-// create one user
-Route::post('/user', 'UserController@store');
-// list single user
-Route::get('/user/{id}', 'UserController@show');
-// edit user
-Route::put('/user/{id}', 'UserController@update');
-//delete user
-Route::delete('/user/{id}', 'UserController@destroy');
-//list roles
-Route::get('/roles', 'RoleController@index');
-// create one role
-Route::post('/role', 'RoleController@store');
-// list single role
-Route::get('/role/{id}', 'RoleController@show');
-// edit role
-Route::put('/role/{id}', 'RoleController@update');
-//delete role
-Route::delete('/role/{id}', 'RoleController@destroy');
+Route::middleware([ 'auth:sanctum','JsonResponse'])->group(function () {
+
+    //list users
+    Route::get('/users', 'UserController@index');
+    // create one user
+    Route::post('/user', 'UserController@store');
+    // list single user
+    Route::get('/user/{user}', 'UserController@show');
+    // edit user
+    Route::put('/user/{user}', 'UserController@update');
+    //delete user
+    Route::delete('/user/{user}', 'UserController@destroy');
+    //list roles
+    Route::get('/roles', 'RoleController@index');
+    // create one role
+    Route::post('/role', 'RoleController@store');
+    // list single role
+    Route::get('/role/{id}', 'RoleController@show');
+    // edit role
+    Route::put('/role/{id}', 'RoleController@update');
+    //delete role
+    Route::delete('/role/{id}', 'RoleController@destroy');
+});
+Route::post('/sanctum/token', 'GenerateTaken');
+
 
 
 // user_indicators middleware
@@ -45,3 +50,33 @@ Route::post('/evaluation', 'User_IndicatorController@create');
 Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
 
 
+Route::get('/criterias', 'CriteriaController@index');
+
+Route::post('/criteria', 'CriteriaController@store');
+
+Route::get('/criteria/{id}', 'CriteriaController@show');
+
+Route::put('/criteria/{id}', 'CriteriaController@update');
+
+Route::delete('/criteria/{id}', 'CriteriaController@destroy');
+
+Route::get('/indicators', 'IndicatorController@index');
+
+Route::post('/indicator', 'IndicatorController@store');
+
+Route::get('/indicator/{id}', 'IndicatorController@show');
+
+Route::put('/indicator/{id}', 'IndicatorController@update');
+
+Route::delete('/indicator/{id}', 'IndicatorController@destroy');
+
+
+Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
+
+Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
+
+Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
+
+Route::put('/evaluation_cycle/{id}', 'Evaluation_CycleController@update');
+
+Route::delete('/evaluation_cycle/{id}', 'Evaluation_CycleController@destroy');

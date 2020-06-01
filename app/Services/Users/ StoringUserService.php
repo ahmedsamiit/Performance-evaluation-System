@@ -31,12 +31,12 @@ class StoringUserService
      * @param string $password
      * @return array
      */
-    public function execute(Request $request)
+    public function execute(array $request)
     {
-        $data = $request->all();
-        if($request->avtar){
+        $data = $request;
+        if($request['avatar']){
 
-            $file = $request->avtar;
+            $file = $request['avatar'];
             $name = time() . $file->getClientOriginalName();
             $file->move('images' , $name);
 

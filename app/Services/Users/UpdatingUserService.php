@@ -6,7 +6,8 @@ use App\Abstracts\AbstractRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Repositories\UserRepository;
 use App\Http\Requests\StoringUser;
-use App\User;
+use App\Models\User;
+
 
 class UpdatingUserService
 {
@@ -31,21 +32,11 @@ class UpdatingUserService
      * @param string $password
      * @return array
      */
-    public function execute( $id, Request $request)
+    public function execute(User $user, Request $request)
     {
         $data = $request->all();
-
-
-        // if($request->avtar){
-        //     $data['avtar'] = Upload::public_uploads($request->image_path, Product::DIR);
-        // }
-
-
-
-        if($this->repo->getById($id)->update($data)){
-             return  response()->json($data);
-        }
-        return false;
+        $this->repo->setModel($user);
+        return $this->repo->updateExistingModel($data);
     }
 
 

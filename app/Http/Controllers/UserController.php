@@ -19,31 +19,32 @@ class UserController extends Controller
     public function index( RetrievingAllUsersService $service, Request $request)
     {
 
-        // $posts=User::paginate(10);
-        // return  ResourcesUser::collection($posts);
+
         $output= $service->execute();
            return  ResourcesUser::collection($output);
     }
 
-    public function show(RetrievingUserService $service ,$id)
+    public function show(User $user)
     {
-        return $service->execute($id);
+
+        return $user ;
     }
 
-    public function destroy( $id, DeletingUserService $service)
+    public function destroy( User $user, DeletingUserService $service)
     {
-        return $service->execute($id);
+        return $service->execute($user);
 
     }
 
-    public function store(Request $request , StoringUserService $service)
+    public function store(StoringUser $request , StoringUserService $service)
     {
-        return $service->execute($request);
+
+        return $service->execute($request->validated());
 
     }
-    public function update($id,Request $request , UpdatingUserService $service)
+    public function update(User $user,Request $request , UpdatingUserService $service)
     {
-        return $service->execute($id,$request);
+        return $service->execute($user,$request);
 
     }
 

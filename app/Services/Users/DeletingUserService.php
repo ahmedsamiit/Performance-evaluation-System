@@ -2,8 +2,9 @@
 
 namespace App\Services\Users;
 
+use App\Models\User ;
 use App\Repositories\UserRepository;
-use App\User;
+
 use phpDocumentor\Reflection\Types\Boolean;
 
 class DeletingUserService
@@ -26,9 +27,10 @@ class DeletingUserService
      *
      * @return array
      */
-    public function execute($id) : bool
+    public function execute(User $user) : bool
     {
+        $this->repo->setModel($user);
+        return $this->repo->deleteExistingModel();
 
-        return $this->repo->getById($id)->delete();
     }
 }
