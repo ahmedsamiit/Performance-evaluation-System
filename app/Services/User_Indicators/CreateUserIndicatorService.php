@@ -14,7 +14,6 @@ class CreateUserIndicatorService{
     public function __construct()
     {
         $user_indicator=new UserIndicator();
-        // EvaluationRepository $repo
         $this->repo = new EvaluationRepository($user_indicator); 
     }
 
