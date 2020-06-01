@@ -17,11 +17,10 @@ class CreateEvaluationCyclesTable extends Migration
             $table->id();
             $table->integer('cycle');
             $table->boolean('is_current');
-            $table->timestamps('start');
-            $table->timestamp('end');
+            $table->timestamp('start');
+            $table->timestamp('end')->nullable();
         });
     }
-
     /**
      * Reverse the migrations.
      *
