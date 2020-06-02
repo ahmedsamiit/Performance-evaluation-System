@@ -5,8 +5,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreIndicatorRequest extends FormRequest
+class UpdatingCriteriaRequest extends FormRequest
 {
+
 
     public function authorize()
     {
@@ -17,12 +18,12 @@ class StoreIndicatorRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|unique:indicators,name,criteria_id',
-            'criteria_id'=>'required|exists:criterias,id',
-            'is_positive'=>'required'
+            'name' => 'required|min:3|unique:criterias,name'
 
 
 
         ];
     }
+
+
 }
