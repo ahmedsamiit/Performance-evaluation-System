@@ -38,9 +38,9 @@ class ClosingEvaluationCycleCommand extends Command
      */
     public function handle()
     {
-        $current = Carbon::now();
+        $current = Carbon::now()->toDateString();
         DB::table('evaluation_cycles')
-            ->where('end',$current)
+            ->whereDate('end',$current)
             ->update([
                 "is_current" => DB::raw(1)
             ]);
