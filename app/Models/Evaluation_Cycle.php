@@ -30,4 +30,16 @@ class Evaluation_cycle extends Model
         return NULL;
     }
 
+    public function getUpdatedAt()
+    {
+        return NULL;
+    }
+
+
+    public function getCreatedAt()
+    {
+        return NULL;
+    }
+    public $timestamps = false;
+
 }

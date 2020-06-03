@@ -37,7 +37,7 @@ class  StoringEvaluation_CycleService
        $dt = Carbon::create($start);
 
        $request['start']=$dt;
-       print_r($dt);
+       //print_r($dt);
         $cycle=$request['cycle'];
 
         $end=$dt->addMinute($cycle);
@@ -45,7 +45,7 @@ class  StoringEvaluation_CycleService
         $request['end'] = $end;
 
         $current = Carbon::now();
-        printf($current);
+       // printf($current);
         $evaluation_cycle = $this->repo->create($request);
         if($evaluation_cycle){
             return  response()->json($evaluation_cycle);
