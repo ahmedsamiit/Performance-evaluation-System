@@ -45,7 +45,7 @@ Route::post('/sanctum/token', 'GenerateTaken');
 
 
 // user_indicators middleware
-Route::post('/evaluation', 'User_IndicatorController@create');
+Route::post('/evaluations', 'User_IndicatorController@create');
 //list indicators for specific user
 Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
 
