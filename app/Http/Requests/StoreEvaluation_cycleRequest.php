@@ -17,9 +17,9 @@ class StoreEvaluation_cycleRequest extends FormRequest
     public function rules()
     {
         return [
-            'cycle' => 'required|min:3',
-            'is_current'=>'required'
-
+            'cycle' => 'required|integer',
+            'start'=>'required',
+            'end'=>'nullable'
 
 
         ];

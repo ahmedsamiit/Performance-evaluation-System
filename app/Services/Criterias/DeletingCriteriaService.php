@@ -26,9 +26,18 @@ class DeletingCriteriaService
      *
      * @return array
      */
-    public function execute($id) : bool
+    public function execute($id)
     {
 
-        return $this->repo->getById($id)->delete();
+        if ($this->repo->getById($id)!= null) {
+            return $this->repo->getById($id)->delete();
+        }
+
+        else
+        {
+            return response()->json([
+                "message" => "unable to delete criteria"
+            ], 404);
+        }
     }
 }
