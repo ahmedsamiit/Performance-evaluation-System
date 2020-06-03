@@ -36,13 +36,13 @@ class  StoringEvaluation_CycleService
         $start=$request['start'];
        $dt = Carbon::create($start);
 
-       $request['start']=$dt;
+       //$request['start']=$dt;
        //print_r($dt);
         $cycle=$request['cycle'];
 
-        $end=$dt->addMinute($cycle);
+        $end=$dt->addMonths($cycle);
         //Carbon::parse($request->input('end'));
-        $request['end'] = $end;
+        $request['end'] = $end->toDateString();
 
         $current = Carbon::now();
        // printf($current);
