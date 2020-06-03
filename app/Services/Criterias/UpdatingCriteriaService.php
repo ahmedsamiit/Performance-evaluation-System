@@ -35,9 +35,16 @@ class UpdatingCriteriaService
         $data = $request;
 
 
-        if($this->repo->getById($id)->update($data)){
+        if($this->repo->getById($id)!=null &&$this->repo->count()>0){
+            $this->repo->getById($id)->update($data);
             return  response()->json($data);
         }
+        else {
+            return response()->json([
+                "message" => "criteria can not update"
+            ], 404);
+        }
+
         return false;
     }
 

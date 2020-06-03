@@ -35,12 +35,19 @@ class  StoringCriteriaService
         $data = $request;
 
         $criteria = $this->repo->create($data);
-        if($criteria){
-            return  response()->json($criteria);
+        if ($criteria) {
+            return response()->json($criteria);
+        } else {
+            return response()->json([
+                "message" => "criteria can not create"
+            ], 404);
         }
-        return false;
 
+        return false;
     }
+
+
+
 
 
 

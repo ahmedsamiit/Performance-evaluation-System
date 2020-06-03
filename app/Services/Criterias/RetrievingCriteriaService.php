@@ -26,6 +26,14 @@ class RetrievingCriteriaService
      */
     public function execute($id)
     {
-        return $this->repo->getById($id);
+        if($this->repo->getById($id) != null&&$this->repo->count()>0){
+            return $this->repo->getById($id)->delete();
+        }
+        else
+        {
+            return response()->json([
+                "message" => "criteria not found"
+            ], 404);
+        }
     }
 }
