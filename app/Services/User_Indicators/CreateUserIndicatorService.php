@@ -3,7 +3,7 @@
 namespace App\Services\User_Indicators;
 
 use App\Http\Resources\User;
-use App\Repositories\EvaluationRepository;
+use App\Repositories\UserIndicatorRepository;
 use Illuminate\Http\Request;
 use App\Models\UserIndicator;
 
@@ -14,7 +14,7 @@ class CreateUserIndicatorService{
     public function __construct()
     {
         $user_indicator=new UserIndicator();
-        $this->repo = new EvaluationRepository($user_indicator); 
+        $this->repo = new UserIndicatorRepository($user_indicator); 
     }
 
     public function execute(Request $request)

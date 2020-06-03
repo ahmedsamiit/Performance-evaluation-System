@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Criteria_Type extends Model
+class CriteriaType extends Model
 {
     protected $fillable = [
         'type'

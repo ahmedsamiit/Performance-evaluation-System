@@ -2,13 +2,13 @@
 
 namespace App\Repositories;
 
-use App\Models\Criteria_Type;
+use App\Models\CriteriaType;
 
 
 class CriteriaTypeRepository extends BaseRepository
 {
    
-    public function __construct(Criteria_Type $criteriatype)
+    public function __construct(CriteriaType $criteriatype)
     {
         parent::__construct($criteriatype);
     }

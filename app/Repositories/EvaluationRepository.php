@@ -2,32 +2,15 @@
 
 namespace App\Repositories;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Evaluation;
 
-use App\Repositories\BaseEvaluationRepository;
-;
 
-class EvaluationRepository implements BaseEvaluationRepository{
-    private $model = null;
-    public function __construct(Model $model)
+class EvaluationRepository extends BaseRepository
+{
+   
+    public function __construct(Evaluation $evaluation)
     {
-        $this->model = $model;
+        parent::__construct($evaluation);
     }
-
-    public function create(array $attributes){
-        return $this->model->create($attributes);
-    }
-    public function getByUserAndCycle($user_id, $cycle_id){
-        return $this->model->where ('user_id',$user_id )
-        ->where('cycle_id', $cycle_id)
-        ->get();
-    }
-    // public function update($id, array $attributes){
-
-    // }
-
-    
-  
 }
-
 ?>

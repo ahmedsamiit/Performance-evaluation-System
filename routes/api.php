@@ -86,4 +86,8 @@ Route::delete('/evaluation_cycle/{id}', 'Evaluation_CycleController@destroy');
 
 
 
-Route::get('/criteriatypes','Criteria_TypeController@index');
+Route::get('/criteriatypes','Criteria_TypeContoller@index');
+
+//evaluations routes
+Route::post('/evaluation', 'EvaluationController@store');
+Route::get('/evaluations/{userId}/{cycleId}', 'EvaluationController@getEvaluation');

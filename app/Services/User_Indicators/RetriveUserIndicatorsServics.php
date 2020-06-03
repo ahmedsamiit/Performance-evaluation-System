@@ -2,7 +2,7 @@
 
 namespace App\Services\User_Indicators;
 
-use App\Repositories\EvaluationRepository;
+use App\Repositories\UserIndicatorRepository;
 use App\Models\UserIndicator;
 
 
@@ -14,7 +14,7 @@ class RetriveUserIndicatorsService{
     {
         $user_indicator=new UserIndicator();
         // EvaluationRepository $repo
-        $this->repo = new EvaluationRepository($user_indicator);     }
+        $this->repo = new UserIndicatorRepository($user_indicator);     }
 
     public function execute($user_id)
     {   
