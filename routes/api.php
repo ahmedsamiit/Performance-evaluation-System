@@ -39,13 +39,13 @@ Route::middleware([ 'auth:sanctum','JsonResponse'])->group(function () {
     Route::put('/role/{id}', 'RoleController@update');
     //delete role
     Route::delete('/role/{id}', 'RoleController@destroy');
-    Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
+
 });
 //Route::middleware('auth:sanctum')->get('/users','UserController@index');
 Route::post('/sanctum/token', 'GenerateTaken');
 
 
-
+Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
 // user_indicators middleware
 Route::post('/evaluation', 'User_IndicatorController@create');
 //list indicators for specific user
