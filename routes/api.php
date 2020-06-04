@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::middleware([ 'auth:sanctum','JsonResponse'])->group(function () {
+Route::middleware([ 'auth:sanctum'])->group(function () {
 
     //list users
     Route::get('/users', 'UserController@index');
