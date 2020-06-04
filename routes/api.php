@@ -34,11 +34,11 @@ Route::middleware([ 'auth:sanctum'])->group(function () {
     // create one role
     Route::post('/role', 'RoleController@store');
     // list single role
-    Route::get('/role/{id}', 'RoleController@show');
+    Route::get('/role/{role}', 'RoleController@show');
     // edit role
-    Route::put('/role/{id}', 'RoleController@update');
+    Route::put('/role/{role}', 'RoleController@update');
     //delete role
-    Route::delete('/role/{id}', 'RoleController@destroy');
+    Route::delete('/role/{role}', 'RoleController@destroy');
 
 });
 //Route::middleware('auth:sanctum')->get('/users','UserController@index');

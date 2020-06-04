@@ -26,6 +26,13 @@ class RetrievingAllUsersService
      */
     public function execute()
     {
-        return $this->repo->getAll();
+        if (!$this->repo->getAll()->isEmpty()&&$this->repo->count()>0) {
+            return $this->repo->getAll();
+        } else {
+            return response()->json([
+                "message" => "Users not found"
+            ], 404);
+        }
+
     }
 }

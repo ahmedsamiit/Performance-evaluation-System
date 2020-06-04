@@ -33,7 +33,7 @@ class StoringUserService
      */
     public function execute(array $request)
     {
-        $data = $request;
+
         if($request['avatar']){
 
             $file = $request['avatar'];
@@ -41,7 +41,7 @@ class StoringUserService
             $file->move('images' , $name);
 
         }
-        $user = $this->repo->create($data);
+        $user = $this->repo->create($request);
         if($user){
             return  response()->json($user);
         }
