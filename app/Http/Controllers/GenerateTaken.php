@@ -32,5 +32,6 @@ class GenerateTaken extends Controller
         }
 
         return $user->createToken('auserapp')->plainTextToken;
+        return csrf_token();
     }
 }

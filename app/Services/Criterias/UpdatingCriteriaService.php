@@ -26,17 +26,25 @@ class UpdatingCriteriaService
     /**
      * update criteria service
      *
-
+     * @param $id
+     * @param array $request
      * @return array
      */
-    public function execute($id, Request $request)
+    public function execute($id, array $request)
     {
-        $data = $request->all();
+        $data = $request;
 
 
-        if($this->repo->getById($id)->update($data)){
-             return  response()->json($data);
+        if($this->repo->getById($id)!=null &&$this->repo->count()>0){
+            $this->repo->getById($id)->update($data);
+            return  response()->json($data);
         }
+        else {
+            return response()->json([
+                "message" => "criteria can not update"
+            ], 404);
+        }
+
         return false;
     }
 

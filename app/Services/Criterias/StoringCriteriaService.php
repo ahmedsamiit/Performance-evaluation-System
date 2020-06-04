@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Services\Criterias;
-use Illuminate\Http\Request;
-
 use App\Repositories\CriteriaRepository;
 
 
@@ -24,22 +22,34 @@ class  StoringCriteriaService
 
 
     /**
-     * soring  criteria service
+     * storing  criteria service
      *
      *
+     *
+     * @param array $request
      * @return array
      */
-    public function execute(Request $request)
+    public function execute(array $request)
     {
-        $data = $request->all();
+
+        $data = $request;
 
         $criteria = $this->repo->create($data);
-        if($criteria){
-            return  response()->json($criteria);
+        if ($criteria) {
+            return response()->json($criteria);
+        } else {
+            return response()->json([
+                "message" => "criteria can not create"
+            ], 404);
         }
-        return false;
 
+        return false;
     }
+
+
+
+
+
 
 
 }

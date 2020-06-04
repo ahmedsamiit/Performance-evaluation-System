@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\StoreEvaluation_cycleRequest;
 use Illuminate\Http\Request;
 
 use App\Services\evaluation_cycles\RetrievingAllEvaluation_CyclesService;
@@ -18,9 +19,9 @@ class evaluation_cycleController extends Controller
         return $service->execute();
     }
 
-    public function store(Request $request, StoringEvaluation_CycleService $service)
+    public function store(StoreEvaluation_cycleRequest $request,StoringEvaluation_CycleService $service)
     {
-        return $service->execute($request);
+        return $service->execute($request->validated());
 
     }
 

@@ -172,4 +172,11 @@ class BaseRepository
     {
         return $this->model->where("id",$id)->update($date);
     }
+
+    // to get user criterias evaluation 
+    public function getByUserAndCycle($userId, $cycleId){
+        return $this->model->where ('user_id',$userId )
+        ->where('cycle_id', $cycleId)
+        ->get();
+    }
 }

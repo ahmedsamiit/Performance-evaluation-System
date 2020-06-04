@@ -29,9 +29,9 @@ class UpdatingIndicatorService
 
      * @return array
      */
-    public function execute($id, Request $request)
+    public function execute($id,array $request)
     {
-        $data = $request->all();
+        $data = $request;
 
 
         if($this->repo->getById($id)->update($data)){

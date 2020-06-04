@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEvaluationCyclesTable extends Migration
+class CreateCriteriaTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateEvaluationCyclesTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluation_cycles', function (Blueprint $table) {
+        Schema::create('criteria_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('cycle');
-            $table->boolean('is_current')->default(0);;
-            $table->timestamp('start');
-            $table->timestamp('end')->nullable();
+            $table->string('type');
+            $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -28,6 +27,6 @@ class CreateEvaluationCyclesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluation_cycles');
+        Schema::dropIfExists('criteria_types');
     }
 }

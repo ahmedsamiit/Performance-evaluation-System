@@ -9,7 +9,8 @@ use App\Services\Indicators\RetrievingIndicatorService;
 use App\Services\Indicators\StoringIndicatorsService;
 use App\Services\Indicators\UpdatingIndicatorService;
 use App\Services\Indicators\DeletingIndicatorService;
-
+use App\Http\Requests\StoreIndicatorRequest;
+use App\Http\Requests\UpdatingIndicatorRequest;
 class IndicatorController extends Controller
 {
 
@@ -18,9 +19,9 @@ class IndicatorController extends Controller
         return $service->execute();
     }
 
-    public function store(Request $request, StoringIndicatorsService $service)
+    public function store(StoreIndicatorRequest $request, StoringIndicatorsService $service)
     {
-        return $service->execute($request);
+        return $service->execute($request->validated());
 
     }
 
@@ -35,9 +36,9 @@ class IndicatorController extends Controller
         return $service->execute($id);
     }
 
-    public function update($id, Request $request, UpdatingIndicatorService $service)
+    public function update($id,UpdatingIndicatorRequest $request, UpdatingIndicatorService $service)
     {
-        return $service->execute($id, $request);
+        return $service->execute($id, $request->validated());
 
     }
 }

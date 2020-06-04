@@ -9,12 +9,37 @@ class Evaluation_cycle extends Model
     protected $fillable = [
 
         'cycle',
-        'is_current',
+        'end',
+        'start',
+
+
     ];
     protected $hidden = [
-        'created_at',
-        'updated_at',
-    ];
 
+        'is_current',
+
+    ];
+    public function setUpdatedAt($value)
+    {
+        return NULL;
+    }
+
+
+    public function setCreatedAt($value)
+    {
+        return NULL;
+    }
+
+    public function getUpdatedAt()
+    {
+        return NULL;
+    }
+
+
+    public function getCreatedAt()
+    {
+        return NULL;
+    }
+    public $timestamps = false;
 
 }
