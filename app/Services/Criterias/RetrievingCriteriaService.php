@@ -27,7 +27,8 @@ class RetrievingCriteriaService
     public function execute($id)
     {
         if($this->repo->getById($id) != null&&$this->repo->count()>0){
-            return $this->repo->getById($id)->delete();
+            return $this->repo->getById($id);
+            // ->delete();
         }
         else
         {
