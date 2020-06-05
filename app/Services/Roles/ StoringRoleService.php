@@ -29,11 +29,11 @@ class  StoringRoleService
      *
      * @return array
      */
-    public function execute(Request $request)
+    public function execute(array $request)
     {
-        $data = $request->all();
 
-        $role = $this->repo->create($data);
+
+        $role = $this->repo->create($request);
         if($role){
             return  response()->json($role);
         }

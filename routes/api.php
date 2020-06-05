@@ -34,11 +34,11 @@ Route::middleware([ 'auth:sanctum'])->group(function () {
     // create one role
     Route::post('/role', 'RoleController@store');
     // list single role
-    Route::get('/role/{id}', 'RoleController@show');
+    Route::get('/role/{role}', 'RoleController@show');
     // edit role
-    Route::put('/role/{id}', 'RoleController@update');
+    Route::put('/role/{role}', 'RoleController@update');
     //delete role
-    Route::delete('/role/{id}', 'RoleController@destroy');
+    Route::delete('/role/{role}', 'RoleController@destroy');
 
 });
 //Route::middleware('auth:sanctum')->get('/users','UserController@index');
@@ -90,4 +90,8 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
 //evaluations routes
 Route::post('/evaluation', 'EvaluationController@store');
+<<<<<<< HEAD
+Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+=======
 Route::get('/evaluations/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+>>>>>>> ed0adec6480efdf900c5afc7e9636eb348334f48

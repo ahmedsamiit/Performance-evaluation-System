@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\StoringRoleRequest;
 use Illuminate\Http\Request;
 use App\Services\Roles\RetrievingAllRolesService;
 use App\Services\Roles\RetrievingRoleService;
 use App\Services\Roles\DeletingRoleService;
 use App\Services\Roles\StoringRoleService;
 use App\Services\Roles\UpdatingRoleService;
-
+use  Spatie\Permission\Models\Role;
 class RoleController extends Controller
 {
     public function index(RetrievingAllRolesService $service, Request $request)
@@ -20,23 +20,23 @@ class RoleController extends Controller
            return  $service->execute();
     }
 
-    public function store(Request $request , StoringRoleService $service)
+    public function store(StoringRoleRequest $request , StoringRoleService $service)
     {
-        return $service->execute($request);
+        return $service->execute($request->validated());
 
     }
-    public function destroy( $id, DeletingRoleService $service)
+    public function destroy( Role $role, DeletingRoleService $service)
     {
-        return $service->execute($id);
+        return $service->execute($role);
 
     }
-    public function show(RetrievingRoleService $service ,$id)
+    public function show(Role $role)
     {
-        return $service->execute($id);
+        return $role;
     }
-    public function update($id,Request $request , UpdatingRoleService $service)
+    public function update(Role $role,StoringRoleRequest $request , UpdatingRoleService $service)
     {
-        return $service->execute($id,$request);
+        return $service->execute($role,$request->validated());
 
     }
 }

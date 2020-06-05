@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoringUser;
+use App\Http\Requests\UpdatingUserRequest;
 use Illuminate\Http\Response;
 use App\Http\Resources\User as ResourcesUser;
 use App\Services\Users\RetrievingAllUsersService;
@@ -42,9 +43,9 @@ class UserController extends Controller
         return $service->execute($request->validated());
 
     }
-    public function update(User $user,Request $request , UpdatingUserService $service)
+    public function update(User $user,UpdatingUserRequest $request , UpdatingUserService $service)
     {
-        return $service->execute($user,$request);
+        return $service->execute($user,$request->validated());
 
     }
 

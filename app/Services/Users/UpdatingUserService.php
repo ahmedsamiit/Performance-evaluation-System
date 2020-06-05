@@ -32,11 +32,11 @@ class UpdatingUserService
      * @param string $password
      * @return array
      */
-    public function execute(User $user, Request $request)
+    public function execute(User $user, array $request)
     {
-        $data = $request->all();
+
         $this->repo->setModel($user);
-        return $this->repo->updateExistingModel($data);
+        return $this->repo->updateExistingModel($request);
     }
 
 
