@@ -39,13 +39,7 @@ Route::middleware([ 'auth:sanctum'])->group(function () {
     Route::put('/role/{role}', 'RoleController@update');
     //delete role
     Route::delete('/role/{role}', 'RoleController@destroy');
-
-});
-//Route::middleware('auth:sanctum')->get('/users','UserController@index');
-Route::post('/sanctum/token', 'GenerateTaken');
-
-
-Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
+    Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
 // user_indicators middleware
 Route::post('/evaluations', 'User_IndicatorController@create');
 //list indicators for specific user
@@ -90,8 +84,8 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
 //evaluations routes
 Route::post('/evaluation', 'EvaluationController@store');
-<<<<<<< HEAD
+
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
-=======
-Route::get('/evaluations/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
->>>>>>> ed0adec6480efdf900c5afc7e9636eb348334f48
+});
+//Route::middleware('auth:sanctum')->get('/users','UserController@index');
+Route::post('/sanctum/token', 'GenerateTaken');
