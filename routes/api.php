@@ -56,6 +56,7 @@ Route::put('/criteria/{id}', 'CriteriaController@update');
 
 Route::delete('/criteria/{id}', 'CriteriaController@destroy');
 
+
 Route::get('/indicators', 'IndicatorController@index');
 
 Route::post('/indicator', 'IndicatorController@store');
@@ -65,7 +66,6 @@ Route::get('/indicator/{id}', 'IndicatorController@show');
 Route::put('/indicator/{id}', 'IndicatorController@update');
 
 Route::delete('/indicator/{id}', 'IndicatorController@destroy');
-
 
 Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 
@@ -84,8 +84,10 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
 //evaluations routes
 Route::post('/evaluation', 'EvaluationController@store');
-
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+
 });
 //Route::middleware('auth:sanctum')->get('/users','UserController@index');
 Route::post('/sanctum/token', 'GenerateTaken');
+
+
