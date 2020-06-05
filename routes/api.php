@@ -62,6 +62,7 @@ Route::put('/criteria/{id}', 'CriteriaController@update');
 
 Route::delete('/criteria/{id}', 'CriteriaController@destroy');
 
+
 Route::get('/indicators', 'IndicatorController@index');
 
 Route::post('/indicator', 'IndicatorController@store');
@@ -71,7 +72,6 @@ Route::get('/indicator/{id}', 'IndicatorController@show');
 Route::put('/indicator/{id}', 'IndicatorController@update');
 
 Route::delete('/indicator/{id}', 'IndicatorController@destroy');
-
 
 Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 
