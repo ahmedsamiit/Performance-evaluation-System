@@ -4,7 +4,7 @@ namespace App\Services\Roles;
 use Illuminate\Http\Request;
 
 use App\Repositories\RoleRepository;
-
+use  Spatie\Permission\Models\Role;
 
 class UpdatingRoleService
 {
@@ -29,18 +29,14 @@ class UpdatingRoleService
 
      * @return array
      */
-    public function execute( $id, Request $request)
+    public function execute(Role $role, array $request)
     {
-        $data = $request->all();
+
+        $this->repo->setModel($role);
+        return $this->repo->updateExistingModel($request);
 
 
 
-
-
-        if($this->repo->getById($id)->update($data)){
-             return  response()->json($data);
-        }
-        return false;
     }
 
 

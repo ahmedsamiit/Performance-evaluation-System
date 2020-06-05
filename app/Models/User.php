@@ -46,4 +46,17 @@ class User extends Authenticatable
     {
         return $this->uploads . $photo ;
     }
+
+
+
+
+    public function isAdmin(){
+        if ($this->hasRole('Superadmin')){
+            return true ;
+        }
+        return false ;
+    }
+
+
+
 }

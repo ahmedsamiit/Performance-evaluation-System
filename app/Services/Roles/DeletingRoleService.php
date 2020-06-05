@@ -3,6 +3,7 @@
 namespace App\Services\Roles;
 
 use App\Repositories\RoleRepository;
+use  Spatie\Permission\Models\Role;
 
 use phpDocumentor\Reflection\Types\Boolean;
 
@@ -26,9 +27,11 @@ class DeletingRoleService
      *
      * @return array
      */
-    public function execute($id) : bool
+    public function execute(Role $role) : bool
     {
 
-        return $this->repo->getById($id)->delete();
+        $this->repo->setModel($role);
+        return $this->repo->deleteExistingModel();
+
     }
 }
