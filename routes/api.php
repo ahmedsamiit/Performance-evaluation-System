@@ -90,8 +90,6 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
 //evaluations routes
 Route::post('/evaluation', 'EvaluationController@store');
-<<<<<<< HEAD
+
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
-=======
-Route::get('/evaluations/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
->>>>>>> ed0adec6480efdf900c5afc7e9636eb348334f48
+

@@ -53,16 +53,16 @@ class  RetrivingUserEvaluationService
         if ($type->type == 'direct'){
             array_push($direct,$value);
         }
-        else{
+        elseif ($type->type == 'average'){
             array_push($avg,$value);
         }
         }
         $factory = new DirectCriteriaFactory();
-        $factory = new AverageCriteriaFactory();
+        $factory1 = new AverageCriteriaFactory();
         $arr = $factory->calculate($direct);
-        $arr2 = $factory->calculate($avg);
+        $arr2 = $factory1->calculate($avg);
         // dd($arr);
-        dd($arr2);
+        // dd($arr2);
         //access
     }
 
