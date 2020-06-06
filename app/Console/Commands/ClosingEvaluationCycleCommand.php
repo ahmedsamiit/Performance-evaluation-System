@@ -42,7 +42,7 @@ class ClosingEvaluationCycleCommand extends Command
         DB::table('evaluation_cycles')
             ->whereDate('end',$current)
             ->update([
-                "is_current" => DB::raw(1)
+                "is_current" => DB::raw(0)
             ]);
 
     }
