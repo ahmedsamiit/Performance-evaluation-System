@@ -16,7 +16,7 @@ class CreateEvaluationCyclesTable extends Migration
         Schema::create('evaluation_cycles', function (Blueprint $table) {
             $table->id();
             $table->integer('cycle');
-            $table->boolean('is_current')->default(0);;
+            $table->boolean('is_current')->default(1);
             $table->timestamp('start');
             $table->timestamp('end')->nullable();
         });

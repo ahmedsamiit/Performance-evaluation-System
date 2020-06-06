@@ -19,9 +19,6 @@ class UpdatingCriteriaRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|unique:criterias,name'
-
-
-
         ];
     }
 

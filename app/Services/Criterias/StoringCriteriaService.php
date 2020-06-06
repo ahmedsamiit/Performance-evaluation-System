@@ -46,10 +46,4 @@ class  StoringCriteriaService
         return false;
     }
 
-
-
-
-
-
-
 }
