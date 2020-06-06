@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Criteria extends Model
 {
     protected $fillable = [
-        'name'
+        'name','type_id',
     ];
     protected $hidden = [
         'created_at',
