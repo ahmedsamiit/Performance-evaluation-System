@@ -28,11 +28,10 @@ class  RetrivingUserEvaluationService
 
     public function execute($userId, $cycleId)
     {  
-        // $cycle_id = Evaluation_Cycle::where('is_current',1);
         $evaluations = $this->repo->getByUserAndCycle($userId, $cycleId);
-        $this->f1($evaluations);
-        if($evaluations){
-            return  response()->json($evaluations);
+        $values=$this->f1($evaluations);
+        if($values){
+            return  response()->json($values);
         }
         return false;
 
@@ -53,21 +52,27 @@ class  RetrivingUserEvaluationService
         if ($type->type == 'direct'){
             array_push($direct,$value);
         }
-        elseif ($type->type == 'average'){
+        elseif($type->type == 'average'){ 
             array_push($avg,$value);
         }
-        }
+        }   
         $factory = new DirectCriteriaFactory();
         $factory1 = new AverageCriteriaFactory();
         $arr = $factory->calculate($direct);
         $arr2 = $factory1->calculate($avg);
-        // dd($arr);
-        // dd($arr2);
-        //access
+    $criterias=$arr + $arr2;
+
+    foreach($criterias as $key=>$value){
+       $criteria = $service->execute($key);
+        $criterias[$criteria->name]=$criterias[$key];
+        unset($criterias[$key]);
     }
 
-
-    //fn check and filter criterias (evaluations)
+    // dd($criterias,$arr, $arr2);
+    return $criterias;
+   
+}
+  //fn check and filter criterias (evaluations)
     //loop & check
     
     //if direct 
@@ -87,17 +92,19 @@ class  RetrivingUserEvaluationService
  instance of directfactory -.calc (arr)
  instance of avgfactory -> calc (arr2)
  */
-
-
-
-
-
-
-
-
-
-
-
-
+      
 }
 ?>
+
+
+  
+
+
+
+
+
+
+
+
+
+
