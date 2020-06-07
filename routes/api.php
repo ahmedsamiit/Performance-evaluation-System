@@ -40,6 +40,10 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     //delete role
     Route::delete('/role/{role}', 'RoleController@destroy');
 
+<<<<<<< HEAD
+=======
+   
+>>>>>>> 3e997f2656d4a4266443a02858852f16bd7e7979
 
     Route::get('/evaluation_cycles', 'Evaluation_cycleController@index');
 
@@ -72,6 +76,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     Route::put('/indicator/{id}', 'IndicatorController@update');
 
     Route::delete('/indicator/{id}', 'IndicatorController@destroy');
+    Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 
 
 });
@@ -88,6 +93,7 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 //evaluations routes
 Route::post('/evaluation', 'EvaluationController@store');
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+<<<<<<< HEAD
 
 
 
@@ -100,3 +106,5 @@ Route::get('/evaluation_cycles', 'Evaluation_cycleController@index');
     Route::put('/evaluation_cycle/{id}', 'Evaluation_cycleController@update');
 
     Route::delete('/evaluation_cycle/{id}', 'Evaluation_cycleController@destroy');
+=======
+>>>>>>> 3e997f2656d4a4266443a02858852f16bd7e7979
