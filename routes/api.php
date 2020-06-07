@@ -40,7 +40,7 @@ Route::middleware([ 'auth:sanctum'])->group(function () {
     //delete role
     Route::delete('/role/{role}', 'RoleController@destroy');
 
-    Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
+   
 
     Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
 
@@ -71,6 +71,7 @@ Route::middleware([ 'auth:sanctum'])->group(function () {
     Route::put('/indicator/{id}', 'IndicatorController@update');
 
     Route::delete('/indicator/{id}', 'IndicatorController@destroy');
+    Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 
 
 });
