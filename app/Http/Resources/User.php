@@ -21,6 +21,7 @@ class User extends JsonResource
             'avatar' => $this->avatar,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'hiring_date' => $this->hiring_date,
         ];
     }
 }

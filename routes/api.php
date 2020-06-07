@@ -48,7 +48,7 @@ Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
 
 Route::get('/criterias', 'CriteriaController@index');
 
-// Route::post('/criteria', 'CriteriaController@store');
+Route::post('/criteria', 'CriteriaController@store');
 
 Route::get('/criteria/{id}', 'CriteriaController@show');
 
@@ -59,7 +59,7 @@ Route::delete('/criteria/{id}', 'CriteriaController@destroy');
 
 Route::get('/indicators', 'IndicatorController@index');
 
-// Route::post('/indicator', 'IndicatorController@store');
+Route::post('/indicator', 'IndicatorController@store');
 
 Route::get('/indicator/{id}', 'IndicatorController@show');
 
@@ -85,14 +85,16 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 //evaluations routes
 Route::post('/evaluation', 'EvaluationController@store');
 
-// Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
 
 });
-Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+// Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
 //Route::middleware('auth:sanctum')->get('/users','UserController@index');
 Route::post('/sanctum/token', 'GenerateTaken');
-Route::post('/criteria', 'CriteriaController@store');
-Route::post('/indicator', 'IndicatorController@store');
+// Route::post('/criteria', 'CriteriaController@store');
+// Route::post('/indicator', 'IndicatorController@store');
+//     Route::get('/users', 'UserController@index');
+
 
 
 

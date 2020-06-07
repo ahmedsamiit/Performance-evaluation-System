@@ -19,7 +19,7 @@ class StoreIndicatorRequest extends FormRequest
         return [
             'name' => 'required|min:3|unique:indicators,name,criteria_id',
             'criteria_id'=>'required|exists:criterias,id',
-            'is_positive'=>'required'
+            // 'is_positive'=>'required'
 
 
 
