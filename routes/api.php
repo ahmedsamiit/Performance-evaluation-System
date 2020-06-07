@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::middleware([ 'auth:sanctum'])->group(function () {
+Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     //list users
     Route::get('/users', 'UserController@index');
@@ -40,15 +40,16 @@ Route::middleware([ 'auth:sanctum'])->group(function () {
     //delete role
     Route::delete('/role/{role}', 'RoleController@destroy');
 
-    Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 
-    Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
+    Route::get('/evaluation_cycles', 'Evaluation_cycleController@index');
 
-    Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
+    Route::post('/evaluation_cycle', 'Evaluation_cycleController@store');
 
-    Route::put('/evaluation_cycle/{id}', 'Evaluation_CycleController@update');
+    Route::get('/evaluation_cycle/{id}', 'Evaluation_cycleController@show');
 
-    Route::delete('/evaluation_cycle/{id}', 'Evaluation_CycleController@destroy');
+    Route::put('/evaluation_cycle/{id}', 'Evaluation_cycleController@update');
+
+    Route::delete('/evaluation_cycle/{id}', 'Evaluation_cycleController@destroy');
 
 
     Route::get('/criterias', 'CriteriaController@index');
@@ -87,3 +88,15 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 //evaluations routes
 Route::post('/evaluation', 'EvaluationController@store');
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+
+
+
+Route::get('/evaluation_cycles', 'Evaluation_cycleController@index');
+
+    Route::post('/evaluation_cycle', 'Evaluation_cycleController@store');
+
+    Route::get('/evaluation_cycle/{id}', 'Evaluation_cycleController@show');
+
+    Route::put('/evaluation_cycle/{id}', 'Evaluation_cycleController@update');
+
+    Route::delete('/evaluation_cycle/{id}', 'Evaluation_cycleController@destroy');

@@ -37,10 +37,11 @@ class StoringUserService
         if($request['avatar']){
 
             $file = $request['avatar'];
-            $name = time() . $file->getClientOriginalName();
+            $name = $file->getClientOriginalName();
             $file->move('images' , $name);
-
+            $request['avatar']=$name;
         }
+
         $user = $this->repo->create($request);
         if($user){
             return  response()->json($user);

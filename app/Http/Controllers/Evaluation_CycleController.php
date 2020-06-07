@@ -6,13 +6,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEvaluation_cycleRequest;
 use Illuminate\Http\Request;
 
-use App\Services\evaluation_cycles\RetrievingAllEvaluation_CyclesService;
-use App\Services\evaluation_cycles\RetrievingEvaluation_CycleService;
-use App\Services\evaluation_cycles\StoringEvaluation_CycleService;
-use App\Services\evaluation_cycles\UpdatingEvaluation_CycleService;
-use App\Services\evaluation_cycles\DeletingEvaluation_cycleService;
+use App\Services\Evaluation_Cycles\RetrievingAllEvaluation_CyclesService;
+use App\Services\Evaluation_Cycles\RetrievingEvaluation_CycleService;
+use App\Services\Evaluation_Cycles\StoringEvaluation_CycleService;
+use App\Services\Evaluation_Cycles\UpdatingEvaluation_CycleService;
+use App\Services\Evaluation_Cycles\DeletingEvaluation_cycleService;
 
-class evaluation_cycleController extends Controller
+class Evaluation_CycleController extends Controller
 {
     public function index(RetrievingAllEvaluation_CyclesService $service, Request $request)
     {
