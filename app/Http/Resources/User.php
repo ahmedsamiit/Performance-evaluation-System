@@ -19,6 +19,8 @@ class User extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'avatar' => $this->avatar,
+            'supervisor'=>$this->supervisor,
+            // 'hiring-date'=>$this->hiring,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'hiring_date' => $this->hiring_date,

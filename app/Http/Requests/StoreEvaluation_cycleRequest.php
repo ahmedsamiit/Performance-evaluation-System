@@ -19,8 +19,8 @@ class StoreEvaluation_cycleRequest extends FormRequest
         return [
             'cycle' => 'required|integer',
             'start'=>'required',
-            'end'=>'nullable'
-
+            'end'=>'nullable',
+            
 
         ];
     }

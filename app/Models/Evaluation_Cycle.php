@@ -14,14 +14,11 @@ class Evaluation_cycle extends Model
         'cycle',
         'end',
         'start',
+        'is_current'
 
 
     ];
-    protected $hidden = [
 
-        'is_current',
-
-    ];
     public function setUpdatedAt($value)
     {
         return NULL;
