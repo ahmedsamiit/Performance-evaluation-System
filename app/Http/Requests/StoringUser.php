@@ -27,8 +27,8 @@ class StoringUser extends FormRequest
             'name'=>'required|min:3|max:50',
             'email'=>'required|email|unique:users',
             'avatar'=>'required',
-            'hiring-date'=>'required|date',
-            'supervisor'=>'required|integer',
+            'hiring_at'=>'required|date',
+            // 'supervisor'=>'required|integer',
             'password'=>'required|min:6'
         ];
     }
