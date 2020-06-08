@@ -20,7 +20,7 @@ class User extends JsonResource
             'email' => $this->email,
             'avatar' => $this->avatar,
             'supervisor'=>$this->supervisor,
-            // 'hiring-date'=>$this->hiring,
+            'hiring_at'=>$this->hiring_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

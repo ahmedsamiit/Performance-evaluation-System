@@ -11,10 +11,15 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
+        if(Role::whereIn('name', ['Admin','ProductOwner','Developer' ,'DevOps','Quality'])->exists())
+        {
+
+        }else{
         Role::create(['name' => 'Admin']);
         Role::create(['name' => 'ProductOwner']);
         Role::create(['name' => 'Developer']);
         Role::create(['name' => 'DevOps']);
         Role::create(['name' => 'Quality']);
+        }
     }
 }
