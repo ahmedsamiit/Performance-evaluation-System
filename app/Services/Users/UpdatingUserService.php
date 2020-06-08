@@ -36,6 +36,13 @@ class UpdatingUserService
     {
 
         $this->repo->setModel($user);
+        if($request['avatar']){
+
+            $file = $request['avatar'];
+            $name = $file->getClientOriginalName();
+            $file->move('images' , $name);
+            $request['avatar']=$name;
+        }
         return $this->repo->updateExistingModel($request);
     }
 
