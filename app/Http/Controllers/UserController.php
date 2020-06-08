@@ -7,6 +7,7 @@ use App\Http\Requests\StoringUser;
 use App\Http\Requests\UpdatingUserRequest;
 use Illuminate\Http\Response;
 use App\Http\Resources\User as ResourcesUser;
+use App\Services\Evaluation_Cycles\RetrievingAllEvaluation_CyclesService;
 use App\Services\Users\RetrievingAllUsersService;
 use App\Services\Users\RetrievingUserService;
 use App\Services\Users\DeletingUserService;
@@ -39,7 +40,7 @@ class UserController extends Controller
 
     public function store(StoringUser $request , StoringUserService $service)
     {
-
+       dd($request);
         return $service->execute($request->validated());
 
     }
@@ -48,5 +49,6 @@ class UserController extends Controller
         return $service->execute($user,$request->validated());
 
     }
+
 
 }
