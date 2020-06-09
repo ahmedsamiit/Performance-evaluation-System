@@ -39,8 +39,6 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     Route::put('/role/{role}', 'RoleController@update');
     //delete role
     Route::delete('/role/{role}', 'RoleController@destroy');
-
-    
     Route::get('/evaluation_cycles', 'Evaluation_cycleController@index');
 
     Route::post('/evaluation_cycle', 'Evaluation_cycleController@store');
@@ -89,3 +87,4 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 //evaluations routes
 Route::post('/evaluation', 'EvaluationController@store');
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+
