@@ -28,7 +28,7 @@ class StoringUser extends FormRequest
             'email'=>'required|email|unique:users',
             'avatar'=>'required',
             'hiring_at'=>'required|date',
-            'supervisor'=>'integer',
+            'supervisor'=>'integer|nullable',
             'role_id'=>'integer',
             'password'=>'required|min:6'
         ];

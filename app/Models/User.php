@@ -46,7 +46,11 @@ class User extends Authenticatable
     {
         return $this->uploads . $photo ;
     }
-
+ 
+    public function supervisor()
+    {
+        return $this->belongsTo('App\Models\user');
+    }
 
 
 

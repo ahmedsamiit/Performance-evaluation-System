@@ -26,8 +26,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     // list single user
     Route::get('/user/{user}', 'UserController@show');
     // edit user
-    Route::put('/user/{user}', 'UserController@update');
-    //delete user
+     //delete user
     Route::delete('/user/{user}', 'UserController@destroy');
     //list roles
     Route::get('/roles', 'RoleController@index');
@@ -87,4 +86,6 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 //evaluations routes
 Route::post('/evaluation', 'EvaluationController@store');
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+
+Route::put('/user/{user}', 'UserController@update');
 

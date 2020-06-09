@@ -26,11 +26,9 @@ class UpdatingUserRequest extends FormRequest
         return [
 
                 'name'=>'min:3|max:50',
-                'email'=>'email|unique:users',
+                'email'=>"email|unique:users,email,{$this->user}",
                 'hiring-date'=>'date',
                 'supervisor'=>'integer',
-
-
         ];
     }
 }
