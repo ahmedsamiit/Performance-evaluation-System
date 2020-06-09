@@ -44,9 +44,9 @@ class StoringUserService
 
         $user = $this->repo->create($request);
         if($user){
-            $role = Role::find($request['role_id']);
+            $role= Role::find($request['role_id']);
             $user->assignRole($role);
-            return  response()->json($request);
+            return  response()->json($user);
         }
         return false;
 

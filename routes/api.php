@@ -22,11 +22,11 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     //list users
     Route::get('/users', 'UserController@index');
     // create one user
-    // Route::post('/user', 'UserController@store');
+    Route::post('/user', 'UserController@store');
     // list single user
     Route::get('/user/{user}', 'UserController@show');
     // edit user
-    Route::put('/user/{user}', 'UserController@update');
+    // Route::put('/user/{user}', 'UserController@update');
     //delete user
     Route::delete('/user/{user}', 'UserController@destroy');
     //list roles
@@ -39,8 +39,6 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     Route::put('/role/{role}', 'RoleController@update');
     //delete role
     Route::delete('/role/{role}', 'RoleController@destroy');
-
-    
     Route::get('/evaluation_cycles', 'Evaluation_cycleController@index');
 
     Route::post('/evaluation_cycle', 'Evaluation_cycleController@store');
@@ -90,20 +88,7 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 Route::post('/evaluation', 'EvaluationController@store');
 
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
-
-
-
-// Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
-//Route::middleware('auth:sanctum')->get('/users','UserController@index');
-Route::post('/sanctum/token', 'GenerateTaken');
-// Route::post('/criteria', 'CriteriaController@store');
-// Route::post('/indicator', 'IndicatorController@store');
-//     Route::get('/users', 'UserController@index');
-Route::post('/user', 'UserController@store');
-
-
-
-
+Route::put('/user/{user}', 'UserController@update');
 
 
 

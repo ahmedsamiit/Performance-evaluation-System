@@ -29,6 +29,8 @@ class UpdatingUserRequest extends FormRequest
                 'email'=>'email|unique:users',
                 'hiring-date'=>'date',
                 'supervisor'=>'integer',
+                'avatar'=>'nullable',
+                'role_id'=>'integer',
 
 
         ];

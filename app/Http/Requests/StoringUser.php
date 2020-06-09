@@ -28,9 +28,10 @@ class StoringUser extends FormRequest
             'email'=>'required|email|unique:users',
             'avatar'=>'required',
             'hiring_at'=>'required|date',
-            // 'supervisor'=>'required|integer',
-            'password'=>'required|min:6',
-            'role_id'=> 'integer'
+            
+            'supervisor'=>'integer',
+            'role_id'=>'integer',
+            'password'=>'required|min:6'
         ];
     }
 }
