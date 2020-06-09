@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Repositories\UserRepository;
 use App\Http\Requests\StoringUser;
 use GuzzleHttp\Psr7\UploadedFile;
+use Spatie\Permission\Models\Role;
+
 
 class StoringUserService
 {
@@ -44,6 +46,8 @@ class StoringUserService
 
         $user = $this->repo->create($request);
         if($user){
+            $role= Role::find($request['role_id']);
+            $user->assignRole($role);
             return  response()->json($user);
         }
         return false;
