@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Repositories\UserRepository;
 use App\Http\Requests\StoringUser;
 use GuzzleHttp\Psr7\UploadedFile;
+use Spatie\Permission\Models\Role;
+
 
 class StoringUserService
 {
@@ -33,9 +35,7 @@ class StoringUserService
      */
     public function execute(array $request)
     {
-
         if($request['avatar']){
-
             $file = $request['avatar'];
             $name = $file->getClientOriginalName();
             $file->move('images' , $name);
@@ -44,7 +44,9 @@ class StoringUserService
 
         $user = $this->repo->create($request);
         if($user){
-            return  response()->json($user);
+            $role = Role::find($request['role_id']);
+            $user->assignRole($role);
+            return  response()->json($request);
         }
         return false;
 

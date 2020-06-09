@@ -22,7 +22,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     //list users
     Route::get('/users', 'UserController@index');
     // create one user
-    Route::post('/user', 'UserController@store');
+    // Route::post('/user', 'UserController@store');
     // list single user
     Route::get('/user/{user}', 'UserController@show');
     // edit user
@@ -99,6 +99,8 @@ Route::post('/sanctum/token', 'GenerateTaken');
 // Route::post('/criteria', 'CriteriaController@store');
 // Route::post('/indicator', 'IndicatorController@store');
 //     Route::get('/users', 'UserController@index');
+Route::post('/user', 'UserController@store');
+
 
 
 
