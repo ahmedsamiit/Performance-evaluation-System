@@ -41,6 +41,7 @@ class UserController extends Controller
     public function store(StoringUser $request , StoringUserService $service)
     {
 
+
         return $service->execute($request->validated());
 
     }

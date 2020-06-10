@@ -35,9 +35,7 @@ class StoringUserService
      */
     public function execute(array $request)
     {
-
         if($request['avatar']){
-
             $file = $request['avatar'];
             $name = $file->getClientOriginalName();
             $file->move('images' , $name);

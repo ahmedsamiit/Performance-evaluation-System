@@ -7,6 +7,7 @@ use App\Models\Criteria;
 class AverageCriteriaFactory extends CriteriaFactory {
 
     public function calculate($values){
+
         $arr=[];
         $criterias=[];
         foreach ($values as $value) {
@@ -23,7 +24,7 @@ class AverageCriteriaFactory extends CriteriaFactory {
                     $arr[$value->criteria_id]->count+= 1;
                     
                  }
-        }
+    }
 
         foreach ($arr as $key=>$element) {
             $criterias[$key]=($element->value/$element->count);
@@ -31,6 +32,16 @@ class AverageCriteriaFactory extends CriteriaFactory {
         // dd($criterias);
         return $criterias;
     }
+
+    /* loop arr
+ 
+    if cri !exist
+    name = > value
+    numer = > 3dd
+    if exist
+    name=> value + new vakue
+    num = > num+1
+    */
 }
 
 

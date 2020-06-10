@@ -55,23 +55,34 @@ class  RetrivingUserEvaluationService
         elseif($type->type == 'average'){ 
             array_push($avg,$value);
         }
-        }
-       
+        }   
         $factory = new DirectCriteriaFactory();
         $factory1 = new AverageCriteriaFactory();
         $arr = $factory->calculate($direct);
         $arr2 = $factory1->calculate($avg);
-        $criterias=$arr + $arr2;
+    $criterias=$arr + $arr2;
 
-        foreach($criterias as $key=>$value){
-           $criteria = $service->execute($key);
-            $criterias[$criteria->name]=$criterias[$key];
-            unset($criterias[$key]);
-        }
-
-        // dd($criterias,$arr, $arr2);
-        return $criterias;
-       
+    foreach($criterias as $key=>$value){
+       $criteria = $service->execute($key);
+        $criterias[$criteria->name]=$criterias[$key];
+        unset($criterias[$key]);
     }
+
+    // dd($criterias,$arr, $arr2);
+    return $criterias;
+}
 }
 ?>
+
+
+  
+
+
+
+
+
+
+
+
+
+
