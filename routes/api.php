@@ -39,15 +39,15 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     Route::put('/role/{role}', 'RoleController@update');
     //delete role
     Route::delete('/role/{role}', 'RoleController@destroy');
-    Route::get('/evaluation_cycles', 'Evaluation_cycleController@index');
+    Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 
-    Route::post('/evaluation_cycle', 'Evaluation_cycleController@store');
+    Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
 
-    Route::get('/evaluation_cycle/{id}', 'Evaluation_cycleController@show');
+    Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
 
-    Route::put('/evaluation_cycle/{id}', 'Evaluation_cycleController@update');
+    Route::put('/evaluation_cycle/{id}', 'Evaluation_CycleController@update');
 
-    Route::delete('/evaluation_cycle/{id}', 'Evaluation_cycleController@destroy');
+    Route::delete('/evaluation_cycle/{id}', 'Evaluation_CycleController@destroy');
 
 
     Route::get('/criterias', 'CriteriaController@index');
@@ -67,7 +67,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     Route::get('/indicator/{id}', 'IndicatorController@show');
 
-    Route::put('/indicator/{id}', 'IndicatorController@update');
+    // Route::put('/indicator/{id}', 'IndicatorController@update');
 
     Route::delete('/indicator/{id}', 'IndicatorController@destroy');
     Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
@@ -89,6 +89,7 @@ Route::post('/evaluation', 'EvaluationController@store');
 
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
 Route::put('/user/{user}', 'UserController@update');
+    Route::put('/indicator/{id}', 'IndicatorController@update');
 
 
 
