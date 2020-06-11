@@ -28,7 +28,7 @@ class RetrivingTrashedIndicatorsService
     public function execute()
     {
       
-        if (!$this->repo->getTrash()->isEmpty()&&$this->repo->count()>0) {
+        if (!$this->repo->getTrash()->isEmpty()) {
             return $this->repo->getTrash();
         } else {
             return response()->json([

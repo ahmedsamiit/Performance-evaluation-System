@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/indicators/trash', 'IndicatorController@trash');
+Route::get('/criterias/trash', 'CriteriaController@trash');
 
 Route::get('/indicator/trash/{id}', 'IndicatorController@restore');
 
@@ -57,7 +58,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     Route::get('/criterias', 'CriteriaController@index');
 
-    Route::get('/criterias/trash', 'CriteriaController@trash');
+    // Route::get('/criterias/trash', 'CriteriaController@trash');
 
     Route::get('/criteria/trash/{id}', 'CriteriaController@restore');
 
