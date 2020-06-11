@@ -29,9 +29,25 @@ class GenerateTaken extends Controller
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);
+
         }
-
-        return response()->json(['token'=>$user->createToken('user')->plainTextToken]);
-
+        /*$users = User::whereHas('roles' => function($q){
+            $q->where('name', 'admin');
+        })->get();*/
+        $token=$user->createToken('user')->plainTextToken;
+        $roles = $user->roles()->pluck('name')->toArray();
+        return response()->json(['token'=>$token,'data'=>$user,'user'=>$roles]);
+        //Auth::user()->roles->pluck('name') ->toArray();
+      
+       /* $response=[
+            'user' => $user,
+            'token' => $token
+        ];*/
+        
+        //return response($response);
     }
+
+  
+  
+
 }

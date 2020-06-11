@@ -72,29 +72,7 @@ class  RetrivingUserEvaluationService
 
     // dd($criterias,$arr, $arr2);
     return $criterias;
-   
 }
-  //fn check and filter criterias (evaluations)
-    //loop & check
-    
-    //if direct 
-    //arr []
-    //av call av =>
-    //append mn av ll arr
-    /// return arr 
-
-
-    /*
-    loop evaluations
-    check if 
-    1- direct => push arr[]
-    else 
-    2- avg =>> arr2  
- end for
- instance of directfactory -.calc (arr)
- instance of avgfactory -> calc (arr2)
- */
-      
 }
 ?>
 

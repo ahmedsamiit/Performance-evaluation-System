@@ -79,7 +79,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     Route::get('/indicator/{id}', 'IndicatorController@show');
 
-    // Route::put('/indicator/{id}', 'IndicatorController@update');
+    Route::put('/indicator/{id}', 'IndicatorController@update');
 
     Route::delete('/indicator/{id}', 'IndicatorController@destroy');
     Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
@@ -100,9 +100,6 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 Route::post('/evaluation', 'EvaluationController@store');
 
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
-Route::put('/user/{user}', 'UserController@update');
-    Route::put('/indicator/{id}', 'IndicatorController@update');
-
 
 
 
