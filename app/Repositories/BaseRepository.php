@@ -179,4 +179,10 @@ class BaseRepository
         ->where('cycle_id', $cycleId)
         ->get();
     }
+    public function getTrash(){
+        return $this->model->onlyTrashed()->get();
+    }
+    public function restoreTrash($id){
+        return $this->model->onlyTrashed()->find($id)->restore();
+    }
 }

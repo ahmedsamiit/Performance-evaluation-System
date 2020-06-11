@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+Route::get('/indicators/trash', 'IndicatorController@trash');
+
+Route::get('/indicator/trash/{id}', 'IndicatorController@restore');
+
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     //list users
@@ -26,7 +31,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     // list single user
     Route::get('/user/{user}', 'UserController@show');
     // edit user
-    // Route::put('/user/{user}', 'UserController@update');
+    Route::put('/user/{user}', 'UserController@update');
     //delete user
     Route::delete('/user/{user}', 'UserController@destroy');
     //list roles
@@ -52,6 +57,10 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     Route::get('/criterias', 'CriteriaController@index');
 
+    Route::get('/criterias/trash', 'CriteriaController@trash');
+
+    Route::get('/criteria/trash/{id}', 'CriteriaController@restore');
+
     Route::post('/criteria', 'CriteriaController@store');
 
     Route::get('/criteria/{id}', 'CriteriaController@show');
@@ -62,6 +71,9 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
 
     Route::get('/indicators', 'IndicatorController@index');
+    // Route::get('/indicators/trash', 'IndicatorController@trash');
+
+    // Route::get('/indicator/trash/{id}', 'IndicatorController@restore');
 
     Route::post('/indicator', 'IndicatorController@store');
 
@@ -90,6 +102,7 @@ Route::post('/evaluation', 'EvaluationController@store');
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
 Route::put('/user/{user}', 'UserController@update');
     Route::put('/indicator/{id}', 'IndicatorController@update');
+
 
 
 

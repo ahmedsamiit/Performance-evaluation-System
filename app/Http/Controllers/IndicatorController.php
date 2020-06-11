@@ -9,6 +9,8 @@ use App\Services\Indicators\RetrievingIndicatorService;
 use App\Services\Indicators\StoringIndicatorsService;
 use App\Services\Indicators\UpdatingIndicatorService;
 use App\Services\Indicators\DeletingIndicatorService;
+use App\Services\Indicators\RetrivingTrashedIndicatorsService;
+use App\Services\Indicators\StoringTrashedIndicatorService;
 use App\Http\Requests\StoreIndicatorRequest;
 use App\Http\Requests\UpdatingIndicatorRequest;
 class IndicatorController extends Controller
@@ -39,6 +41,14 @@ class IndicatorController extends Controller
     public function update($id,UpdatingIndicatorRequest $request, UpdatingIndicatorService $service)
     {
         return $service->execute($id, $request->validated());
+
+    }
+    public function trash(RetrivingTrashedIndicatorsService $service){
+        return $service->execute();
+
+    }
+    public function restore( $id , StoringTrashedIndicatorService $service){
+        return $service->execute($id);
 
     }
 }
