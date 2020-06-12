@@ -20,6 +20,6 @@ class Indicator extends Model
 
     public function criteria()
     {
-        return $this->belongsTo('App\Criteria');
+        return $this->belongsTo('App\Models\Criteria');
     }
 }

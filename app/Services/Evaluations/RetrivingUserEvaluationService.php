@@ -27,7 +27,7 @@ class  RetrivingUserEvaluationService
     }
 
     public function execute($userId, $cycleId)
-    {  
+    {
         $evaluations = $this->repo->getByUserAndCycle($userId, $cycleId);
         $values=$this->f1($evaluations);
         if($values){
@@ -46,32 +46,43 @@ class  RetrivingUserEvaluationService
         $modelType = new CriteriaType();
         $repoType = new CriteriaTypeRepository($modelType);
         $serviceType = new RetrivingCriteriaTypeService($repoType);
-         foreach ($evaluations as  $value) {
-        $criteria = $service->execute($value->criteria_id);
-        $type = $serviceType->execute($criteria->type_id);
+        foreach($evaluations as  $value) {
+            $criteria = $service->execute($value->criteria_id);
+            $type = $serviceType->execute($criteria->type_id);
+
         if ($type->type == 'direct'){
             array_push($direct,$value);
         }
         elseif($type->type == 'average'){ 
             array_push($avg,$value);
         }
-        }
-       
+        }   
         $factory = new DirectCriteriaFactory();
         $factory1 = new AverageCriteriaFactory();
         $arr = $factory->calculate($direct);
         $arr2 = $factory1->calculate($avg);
         $criterias=$arr + $arr2;
 
-        foreach($criterias as $key=>$value){
-           $criteria = $service->execute($key);
-            $criterias[$criteria->name]=$criterias[$key];
-            unset($criterias[$key]);
-        }
-
-        // dd($criterias,$arr, $arr2);
-        return $criterias;
-       
+    foreach($criterias as $key=>$value){
+       $criteria = $service->execute($key);
+        $criterias[$criteria->name]=$criterias[$key];
+        unset($criterias[$key]);
     }
+
+    return $criterias;
+}
 }
 ?>
+
+
+  
+
+
+
+
+
+
+
+
+
+

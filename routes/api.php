@@ -72,7 +72,6 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     Route::put('/indicator/{id}', 'IndicatorController@update');
 
     Route::delete('/indicator/{id}', 'IndicatorController@destroy');
-    Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 
 
 });
@@ -92,4 +91,12 @@ Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation
 
 
 
+Route::get('/evaluation_cycles', 'Evaluation_cycleController@index');
 
+    Route::post('/evaluation_cycle', 'Evaluation_cycleController@store');
+
+    Route::get('/evaluation_cycle/{id}', 'Evaluation_cycleController@show');
+
+    Route::put('/evaluation_cycle/{id}', 'Evaluation_cycleController@update');
+
+    Route::delete('/evaluation_cycle/{id}', 'Evaluation_cycleController@destroy');

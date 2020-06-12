@@ -17,7 +17,10 @@ class UpdatingIndicatorRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|unique:indicators,name'
+            'name' => 'required|min:3',
+            'criteria_id' => 'integer',
+            'is_positive' => 'integer',
+            
 
 
 
