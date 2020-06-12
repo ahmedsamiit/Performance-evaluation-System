@@ -26,7 +26,7 @@ class RetrivingUsersBySupervisorService
      */
     public function execute($role,$id)
     {
-        if ($role == 'manager' || $role == 'senior'){
+        if ($role == 'Manager' || $role == 'Senior Developer'){
             $users = $this->repo->getBySupervisorId($id);
             return $users;
         }
