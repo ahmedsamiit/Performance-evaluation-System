@@ -26,10 +26,10 @@ class  RetrivingUserEvaluationService
 
     }
 
-    // public function execute($userId, $cycleId)
-    public function execute($userId)
+    public function execute($userId, $cycleId)
+    // public function execute($userId)
     {   
-        $cycleId=1;
+        // $cycleId=1;
         $evaluations = $this->repo->getByUserAndCycle($userId, $cycleId);
         $values=$this->f1($evaluations);
         if($values){
