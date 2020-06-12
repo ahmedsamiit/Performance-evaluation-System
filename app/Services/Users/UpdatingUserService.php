@@ -43,22 +43,26 @@ class UpdatingUserService
         //     $file->move('images' , $name);
         //     $request['avatar']=$name;
         // }
-        return response->json($request);
-        // $role = Role::find($request['role_id']);
-        // if(!$user->hasRole($role)){
-        //     $oldRole = model_has_role::where('model_id',$user.id)
-        //     ->update(['role_id' =>  $request['role_id']]);
-        //     // $user->removeRole($oldRole);
-        //     //    $user->assignRole($role);
-        // }
-        // return $this->repo->updateExistingModel($request);
-        
+       //return response()->json($request);
+       if($request['role_id']){
+        $role = Role::find($request['role_id']);
+        if(!$user->hasRole($role)){
+            // $oldRole = model_has_role::where('model_id',$user->id)
+             //->update(['role_id' =>  $request['role_id']]);
+            //$user->removeRole($oldRole);
+            //$user->assignRole($role);
+        }
+       }
+
+
+        return $this->repo->updateExistingModel($request);
+
     }
 
 }
 
 // pos evaluate all developers (j,s,tester) check role that it is po
 //junior evaluate pos , senior bta3o , his team member (j , tester has same supervisor)
-//senior evaluate jr 
+//senior evaluate jr
 // manager evaluate senior , admin , deveops , po
 

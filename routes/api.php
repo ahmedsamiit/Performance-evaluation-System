@@ -25,7 +25,7 @@ Route::get('/users/{role}/{id}', 'UserController@getUsers');
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     //list users
-    Route::get('/users', 'UserController@index');
+
     // create one user
     Route::post('/user', 'UserController@store');
     // list single user
@@ -98,3 +98,4 @@ Route::post('/evaluation', 'EvaluationController@store');
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
 
 Route::put('/user/{user}', 'UserController@update');
+Route::get('/users', 'UserController@index');
