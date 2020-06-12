@@ -32,8 +32,8 @@ class RetrivingTrashedIndicatorsService
             return $this->repo->getTrash();
         } else {
             return response()->json([
-                "message" => "No indicators  found"
-            ], 404);
+                "message" => "Empty Content"
+            ], 204);
         }
      
 
