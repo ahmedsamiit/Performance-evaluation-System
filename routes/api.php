@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/indicator/trash/{id}', 'IndicatorController@restore');
+
+// Route::put('/user/{user}', 'UserController@update');
+Route::get('/users/{role}/{id}', 'UserController@getUsers');
 
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
