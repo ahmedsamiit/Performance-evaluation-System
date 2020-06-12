@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
+// Route::put('/user/{user}', 'UserController@update');
+Route::get('/users/{role}/{id}', 'UserController@getUsers');
 
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
@@ -29,7 +31,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     // list single user
     Route::get('/user/{user}', 'UserController@show');
     // edit user
-    Route::put('/user/{user}', 'UserController@update');
+    // Route::put('/user/{user}', 'UserController@update');
     //delete user
     Route::delete('/user/{user}', 'UserController@destroy');
     //list roles

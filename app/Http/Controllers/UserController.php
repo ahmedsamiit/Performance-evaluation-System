@@ -13,6 +13,7 @@ use App\Services\Users\RetrievingUserService;
 use App\Services\Users\DeletingUserService;
 use App\Services\Users\StoringUserService;
 use App\Services\Users\UpdatingUserService;
+use App\Services\Users\RetrivingUsersBySupervisorService;
 
 
 
@@ -48,6 +49,11 @@ class UserController extends Controller
     public function update(User $user,UpdatingUserRequest $request , UpdatingUserService $service)
     {
         return $service->execute($user,$request->validated());
+
+    }
+    public function getUsers($role, $id, RetrivingUsersBySupervisorService $service)
+    {
+        return $service->execute($role, $id);
 
     }
 

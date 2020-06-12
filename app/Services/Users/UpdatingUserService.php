@@ -38,13 +38,13 @@ class UpdatingUserService
     {
 
         $this->repo->setModel($user);
-        if($request['avatar']){
+        // if($request['avatar']){
 
-            $file = $request['avatar'];
-            $name = $file->getClientOriginalName();
-            $file->move('images' , $name);
-            $request['avatar']=$name;
-        }
+        //     $file = $request['avatar'];
+        //     $name = $file->getClientOriginalName();
+        //     $file->move('images' , $name);
+        //     $request['avatar']=$name;
+        // }
 
         $role = Role::find($request['role_id']);
         if(!$user->hasRole($role)){

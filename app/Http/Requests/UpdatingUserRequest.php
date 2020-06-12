@@ -25,9 +25,9 @@ class UpdatingUserRequest extends FormRequest
     {
         return [
 
-                'name'=>'min:3|max:50',
-                'email'=>"email|unique:users,email,{$this->user}",
-                'hiring-date'=>'date',
+                'name'=>'min:3|max:50|nullable',
+                'email'=>"email|unique:users,email,{$this->user}|nullable",
+                'hiring-date'=>'date|nullable',
                 'supervisor'=>'integer',
                 'avatar'=>'nullable',
                 'role_id'=>'integer',

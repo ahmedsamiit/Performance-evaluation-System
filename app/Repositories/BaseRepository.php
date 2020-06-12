@@ -185,4 +185,16 @@ class BaseRepository
     public function restoreTrash($id){
         return $this->model->onlyTrashed()->find($id)->restore();
     }
+    public function getBySupervisorId($id){
+        return $this->model->where('supervisor',$id)->get();
+    }
+    public function getUsersByRole(array $roles){
+        $users = [];
+        foreach ($roles as $role) {
+            $user = $this->model->role($role)->get(); 
+            array_push($users,$user);
+        }
+        return $users;
+    }
+   
 }
