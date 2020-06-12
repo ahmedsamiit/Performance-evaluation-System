@@ -43,9 +43,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     // edit role
     Route::put('/role/{role}', 'RoleController@update');
     //delete role
-    Route::delete('/role/{role}', 'RoleController@destroy');
-
-    Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
+  Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 
     Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
 
@@ -84,7 +82,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     Route::delete('/indicator/{id}', 'IndicatorController@destroy');
 
 });
-//Route::middleware('auth:sanctum')->get('/users','UserController@index');
+
 Route::post('/sanctum/token', 'GenerateTaken');
 
 // user_indicators middleware

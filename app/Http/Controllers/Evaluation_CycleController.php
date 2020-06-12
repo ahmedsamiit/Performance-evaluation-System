@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\StoreEvaluation_cycleRequest;
+use App\Http\Requests\UpdateEvaluation_cycleRequest;
 use Illuminate\Http\Request;
 
 use App\Services\Evaluation_Cycles\RetrievingAllEvaluation_CyclesService;
@@ -36,9 +37,9 @@ class Evaluation_CycleController extends Controller
         return $service->execute($id);
     }
 
-    public function update($id, Request $request, UpdatingEvaluation_CycleService $service)
+    public function update($id,UpdateEvaluation_cycleRequest $request, UpdatingEvaluation_CycleService $service)
     {
-        return $service->execute($id, $request);
+        return $service->execute($id, $request->validated());
 
     }
 }
