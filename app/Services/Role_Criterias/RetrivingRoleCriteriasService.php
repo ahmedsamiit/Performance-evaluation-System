@@ -4,6 +4,7 @@ namespace App\Services\Role_Criterias;
 
 use App\Repositories\RoleCriteriaRepository;
 use App\Models\Criteria;
+use App\Models\User;
 
 
 class RetrivingRoleCriteriasService
@@ -29,6 +30,8 @@ class RetrivingRoleCriteriasService
     public function execute($roleId)
     {
         // if($this->repo->getAllById($roleId) != null&&$this->repo->count()>0){
+            $user=User::find(Auth::id());
+            dd($user);
             $criteriasId = [];
             $roleCriterias = $this->repo->getAllById($roleId);
             foreach ($roleCriterias as $value){

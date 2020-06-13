@@ -23,6 +23,8 @@ Route::get('/criteria/role/{id}', 'CriteriaController@getByRole');
 Route::get('/users/{role}/{id}', 'UserController@getUsers');
 
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
+Route::get('/criteria/role/{id}', 'CriteriaController@getByRole');
+
 
     //list users
     Route::get('/users', 'UserController@index');
