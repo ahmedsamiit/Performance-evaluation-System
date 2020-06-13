@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/users/{role}/{id}', 'UserController@getUsers');
-Route::get('/user/{user}', 'UserController@show');
 
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
@@ -29,7 +28,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     // create one user
     Route::post('/user', 'UserController@store');
     // list single user
-    // Route::get('/user/{user}', 'UserController@show');
+    Route::get('/user/{user}', 'UserController@show');
     // edit user
     Route::put('/user/{user}', 'UserController@update');
     //delete user
