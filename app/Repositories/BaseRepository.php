@@ -174,9 +174,9 @@ class BaseRepository
     }
 
     // to get user criterias evaluation 
-    public function getByUserAndCycle($userId, $cycleId){
-        return $this->model->where ('user_id',$userId )
-        ->where('cycle_id', $cycleId)
+    public function getByUserAndCycle($request){
+        return $this->model->where ('user_id',$request ->user_id )
+        ->where('cycle_id', $request->cycle_id)
         ->get();
     }
     public function getTrash(){
