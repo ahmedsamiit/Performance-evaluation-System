@@ -56,7 +56,7 @@ class AccountsController extends Controller
 
     $data = new \stdClass();
     $data->link = Config('app.url') . 'password/reset/' . $token . '?email=' . urlencode($user->email);
-
+        // dd($data);
         try {
             Mail::to($user->email)->send(new ResetMail($data));
 

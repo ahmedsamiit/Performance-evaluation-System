@@ -19,19 +19,18 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-// Route::put('/user/{user}', 'UserController@update');
 Route::get('/users/{role}/{id}', 'UserController@getUsers');
 
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     //list users
-
+    Route::get('/users', 'UserController@index');
     // create one user
     Route::post('/user', 'UserController@store');
     // list single user
     Route::get('/user/{user}', 'UserController@show');
     // edit user
-    // Route::put('/user/{user}', 'UserController@update');
+    Route::put('/user/{user}', 'UserController@update');
     //delete user
     Route::delete('/user/{user}', 'UserController@destroy');
     //list roles
@@ -43,7 +42,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     // edit role
     Route::put('/role/{role}', 'RoleController@update');
     //delete role
-  Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
+    Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 
     Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
 
@@ -80,6 +79,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     Route::put('/indicator/{id}', 'IndicatorController@update');
 
     Route::delete('/indicator/{id}', 'IndicatorController@destroy');
+    Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
 
 });
 
@@ -88,7 +88,7 @@ Route::post('/sanctum/token', 'GenerateTaken');
 // user_indicators middleware
 Route::post('/evaluations', 'User_IndicatorController@create');
 //list indicators for specific user
-Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
+// Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
 
 Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
@@ -97,5 +97,3 @@ Route::post('/evaluation', 'EvaluationController@store');
 
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
 
-Route::put('/user/{user}', 'UserController@update');
-Route::get('/users', 'UserController@index');

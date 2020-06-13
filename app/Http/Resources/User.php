@@ -24,6 +24,7 @@ class User extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'hiring_date' => $this->hiring_date,
+            'role'=>$this->roles()->pluck('name')->first(),
         ];
     }
 }
