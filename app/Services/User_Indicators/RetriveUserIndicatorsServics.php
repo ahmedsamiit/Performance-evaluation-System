@@ -18,8 +18,8 @@ class RetriveUserIndicatorsService{
 
     public function execute($user_id)
     {   
-        $cycle_id = 1;
-        // $cycle_id = Evaluation_Cycle::where('is_current','true');
+        // $cycle_id = 1;
+        $cycle_id = Evaluation_Cycle::where('is_current','true');
         return $this->repo->getByUserAndCycle($user_id, $cycle_id);
     }
 
