@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/criteria/role/{id}', 'CriteriaController@getByRole');
 
 Route::get('/users/{role}/{id}', 'UserController@getUsers');
 
@@ -29,7 +28,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     // create one user
     Route::post('/user', 'UserController@store');
     // list single user
-    Route::get('/user/{user}', 'UserController@show');
+    // Route::get('/user/{user}', 'UserController@show');
     // edit user
     Route::put('/user/{user}', 'UserController@update');
     //delete user
@@ -98,3 +97,4 @@ Route::post('/evaluation', 'EvaluationController@store');
 
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
 
+  Route::get('/user/{user}', 'UserController@show');

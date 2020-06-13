@@ -50,8 +50,8 @@ class CriteriaController extends Controller
         return $service->execute($id);
 
     }
-    public function getByRole( $id , RetrivingRoleCriteriasService $service){
-        return $service->execute($id);
+    public function getByRole( $id, $uid , RetrivingRoleCriteriasService $service){
+        return $service->execute($id, $uid);
 
     }
 }
