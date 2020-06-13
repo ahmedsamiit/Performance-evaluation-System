@@ -32,8 +32,8 @@ class RetrivingTrashedCriteriasService
             return $this->repo->getTrash();
         } else {
             return response()->json([
-                "message" => "Criterias not found"
-            ], 404);
+                "message" => "Empty Content"
+            ], 204);
         }
      
 
