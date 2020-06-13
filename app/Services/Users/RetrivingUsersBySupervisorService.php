@@ -36,7 +36,7 @@ class RetrivingUsersBySupervisorService
 
 
         }
-        elseif ($role == 'Junior Developer') {
+        elseif ($role == 'Junior Developer' || $role == 'Tester') {
             $users =[];
             $pos = $this->repo->getUsersByRole(['ProductOwner']);
             $user = $this->repo->getById($id);
@@ -45,6 +45,10 @@ class RetrivingUsersBySupervisorService
             array_push($users,$pos,$supervisor,$team);
             return $users;
 
+        }
+        elseif ($role == 'admin'){
+            $users = $this->repo->getAll();
+            return $users;
         }
             
          else {
