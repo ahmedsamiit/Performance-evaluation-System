@@ -29,7 +29,8 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-
+        $role= $user->roles()->pluck('id')->first();
+        $user['role_id'] = $role ;
         return $user ;
     }
 
