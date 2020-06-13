@@ -79,6 +79,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     Route::put('/indicator/{id}', 'IndicatorController@update');
 
     Route::delete('/indicator/{id}', 'IndicatorController@destroy');
+    Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
 
 });
 
@@ -87,7 +88,7 @@ Route::post('/sanctum/token', 'GenerateTaken');
 // user_indicators middleware
 Route::post('/evaluations', 'User_IndicatorController@create');
 //list indicators for specific user
-Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
+// Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
 
 Route::get('/criteriatypes','Criteria_TypeContoller@index');
 

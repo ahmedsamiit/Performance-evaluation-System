@@ -46,7 +46,7 @@ class RetrivingUsersBySupervisorService
             return $users;
 
         }
-        elseif ($role == 'admin'){
+        elseif ($role == 'Admin' || $role == 'superadmin'){
             $users = $this->repo->getAll();
             return $users;
         }
