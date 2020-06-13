@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-// Route::put('/user/{user}', 'UserController@update');
 Route::get('/users/{role}/{id}', 'UserController@getUsers');
 
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {

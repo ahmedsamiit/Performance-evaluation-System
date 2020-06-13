@@ -8,8 +8,7 @@ use App\Repositories\UserRepository;
 use App\Http\Requests\StoringUser;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
-
-
+use Illuminate\Support\Facades\DB;
 
 class UpdatingUserService
 {
@@ -38,23 +37,20 @@ class UpdatingUserService
     {
 
         $this->repo->setModel($user);
-        if($request['avatar']){
-
-            $file = $request['avatar'];
-            $name = $file->getClientOriginalName();
-            $file->move('images' , $name);
-            $request['avatar']=$name;
-        }
 
         $role = Role::find($request['role_id']);
         if(!$user->hasRole($role)){
-            $oldRole = model_has_role::where('model_id',$user.id)
+            $oldRole = DB::table('model_has_roles')->where('model_id',$user->id)
             ->update(['role_id' =>  $request['role_id']]);
-            // $user->removeRole($oldRole);
-            //    $user->assignRole($role);
         }
         return $this->repo->updateExistingModel($request);
         
     }
 
 }
+       
+
+       
+
+
+
