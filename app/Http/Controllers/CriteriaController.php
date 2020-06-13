@@ -9,6 +9,7 @@ use App\Services\Criterias\StoringCriteriaService;
 use App\Services\Criterias\UpdatingCriteriaService;
 use App\Services\Criterias\RetrivingTrashedCriteriasService;
 use App\Services\Criterias\StoringTrashedCriteriaService;
+use App\Services\Role_Criterias\RetrivingRoleCriteriasService;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCriteriaRequest;
 use App\Http\Requests\UpdatingCriteriaRequest;
@@ -46,6 +47,10 @@ class CriteriaController extends Controller
 
     }
     public function restore( $id , StoringTrashedCriteriaService $service){
+        return $service->execute($id);
+
+    }
+    public function getByRole( $id , RetrivingRoleCriteriasService $service){
         return $service->execute($id);
 
     }

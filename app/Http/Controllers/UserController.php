@@ -29,8 +29,11 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-
+    
+        $role= $user->roles()->pluck('id')->first();
+        $user['role'] = $role ;
         return $user ;
+    
     }
 
     public function destroy( User $user, DeletingUserService $service)
@@ -54,6 +57,7 @@ class UserController extends Controller
     public function getUsers($role, $id, RetrivingUsersBySupervisorService $service)
     {
         return $service->execute($role, $id);
+        // return  ResourcesUser::collection($output);
 
     }
 

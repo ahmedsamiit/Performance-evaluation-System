@@ -89,6 +89,11 @@ class BaseRepository
         return $this->model->where('id', $id)->first();
     }
 
+    public function getAllById(int $id)
+    {
+        return $this->model->where('role_id', $id)->get();
+    }
+
     /**
      * Returns the first row of the selected resource
      * @return Model

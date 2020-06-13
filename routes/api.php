@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::get('/criteria/role/{id}', 'CriteriaController@getByRole');
 
 Route::get('/users/{role}/{id}', 'UserController@getUsers');
 
@@ -60,7 +61,7 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     Route::post('/criteria', 'CriteriaController@store');
 
-    Route::get('/criteria/{id}', 'CriteriaController@show');
+    // Route::get('/criteria/{id}', 'CriteriaController@show');
 
     Route::put('/criteria/{id}', 'CriteriaController@update');
 
