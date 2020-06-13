@@ -24,12 +24,8 @@ class UpdatingUserRequest extends FormRequest
     public function rules()
     {
         return [
-
-                'name'=>'min:3|max:50',
-                'email'=>"email|unique:users,email,{$this->user}",
-                'hiring-date'=>'date',
-                'supervisor'=>'integer',
-                'avatar'=>'nullable',
+                
+                'supervisor'=>'integer|nullable',
                 'role_id'=>'integer',
         ];
     }

@@ -2,10 +2,10 @@
 
 namespace App\Services\Evaluation_Cycles;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Arr;
 use App\Repositories\Evaluation_CycleRepository;
 
-
+use Carbon\Carbon;
 class UpdatingEvaluation_CycleService
 {
     protected $repo;
@@ -29,13 +29,21 @@ class UpdatingEvaluation_CycleService
 
      * @return array
      */
-    public function execute($id, Request $request)
+    public function execute($id, array $request)
     {
-        $data = $request->all();
+        $start=$request['start'];
+       $dt = Carbon::parse($start);
+
+       
+        $cycle=$request['cycle'];
+
+        $end=$dt->addMonths($cycle);
+      
+        $request['end'] = $end->toDateString();
 
 
-        if($this->repo->getById($id)->update($data)){
-             return  response()->json($data);
+        if($this->repo->getById($id)->update($request)){
+             return  response()->json($request);
         }
         return false;
     }

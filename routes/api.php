@@ -18,10 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/indicators/trash', 'IndicatorController@trash');
-Route::get('/criterias/trash', 'CriteriaController@trash');
 
-Route::get('/indicator/trash/{id}', 'IndicatorController@restore');
+Route::get('/users/{role}/{id}', 'UserController@getUsers');
 
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
@@ -44,7 +42,6 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     // edit role
     Route::put('/role/{role}', 'RoleController@update');
     //delete role
-    Route::delete('/role/{role}', 'RoleController@destroy');
     Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 
     Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
@@ -55,10 +52,9 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     Route::delete('/evaluation_cycle/{id}', 'Evaluation_CycleController@destroy');
 
-
     Route::get('/criterias', 'CriteriaController@index');
 
-    // Route::get('/criterias/trash', 'CriteriaController@trash');
+    Route::get('/criterias/trash', 'CriteriaController@trash');
 
     Route::get('/criteria/trash/{id}', 'CriteriaController@restore');
 
@@ -70,11 +66,11 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     Route::delete('/criteria/{id}', 'CriteriaController@destroy');
 
-
     Route::get('/indicators', 'IndicatorController@index');
-    // Route::get('/indicators/trash', 'IndicatorController@trash');
 
-    // Route::get('/indicator/trash/{id}', 'IndicatorController@restore');
+    Route::get('/indicators/trash', 'IndicatorController@trash');
+
+    Route::get('/indicator/trash/{id}', 'IndicatorController@restore');
 
     Route::post('/indicator', 'IndicatorController@store');
 
@@ -83,11 +79,9 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     Route::put('/indicator/{id}', 'IndicatorController@update');
 
     Route::delete('/indicator/{id}', 'IndicatorController@destroy');
-    Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
-
 
 });
-//Route::middleware('auth:sanctum')->get('/users','UserController@index');
+
 Route::post('/sanctum/token', 'GenerateTaken');
 
 // user_indicators middleware
@@ -101,6 +95,4 @@ Route::get('/criteriatypes','Criteria_TypeContoller@index');
 Route::post('/evaluation', 'EvaluationController@store');
 
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
-
-
 

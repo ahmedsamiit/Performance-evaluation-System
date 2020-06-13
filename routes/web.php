@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post('/evaluation', 'EvaluationController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::post('reset_password_without_token', 'AccountsController@validatePasswordRequest');
+Route::post('reset_password_with_token', 'AccountsController@resetPassword');
+
