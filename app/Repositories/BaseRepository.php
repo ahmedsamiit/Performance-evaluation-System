@@ -3,6 +3,8 @@
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
+use  Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Description of BaseRepository
@@ -194,11 +196,18 @@ class BaseRepository
         return $this->model->where('supervisor',$id)->get();
     }
     public function getUsersByRole(array $roles){
-        $users = [];
-        foreach ($roles as $role) {
-            $user = $this->model->role($role)->get(); 
-            array_push($users,$user);
+        $roles = Role::whereIn('name',$roles)->get();
+        $roles_id = [];
+        foreach($roles as $role){
+            array_push($roles_id,$role->id);
         }
+
+        $user_roles = DB::table('model_has_roles')->whereIn('role_id',$roles_id)->get();
+        $users_id = [];
+        foreach($user_roles as $user){
+          array_push($users_id,$user->model_id);
+      }
+      $users = DB::table('users')->whereIn('id',$users_id)->get();
         return $users;
     }
    

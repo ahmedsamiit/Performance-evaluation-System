@@ -3,6 +3,9 @@
 namespace App\Services\Users;
 
 use App\Repositories\UserRepository;
+use  Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\DB;
+
 
 class RetrivingUsersBySupervisorService
 {
@@ -31,9 +34,8 @@ class RetrivingUsersBySupervisorService
             return $users;
         }
         elseif ($role == 'ProductOwner') {
-            $users = $this->repo->getUsersByRole(['Junior Developer','Senior Developer' ,'Tester']);
+            $users = $this->repo->getUsersByRole(['Junior Developer' ,'Tester']);
             return $users;
-
 
         }
         elseif ($role == 'Junior Developer' || $role == 'Tester') {
@@ -50,6 +52,10 @@ class RetrivingUsersBySupervisorService
             $users = $this->repo->getAll();
             return $users;
         }
+        elseif ($role == 'DevOps'){
+            $user = $this->model->role($role)->get(); 
+            return $users;
+        }
             
          else {
             return response()->json([
@@ -59,16 +65,6 @@ class RetrivingUsersBySupervisorService
        
 
     }
-    /* check role ?
-    manager or senior => user_id and check supervisor col
-    po 
-    retrive all (j,s,testers)
-    junior
-    retrive all pos
-    his senior
-     and team members(user and check supervisor)
-    senior 
-    retrive all juniors (user_id) 
-    */
+    
 
 }
