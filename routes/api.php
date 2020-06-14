@@ -25,8 +25,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
 
-    //list users
-    Route::get('/users', 'UserController@index');
+    // //list users
+    // Route::get('/users', 'UserController@index');
     //list trash
     Route::get('/users/trash', 'UserController@trash');
     //restore deleted user
@@ -98,19 +98,24 @@ Route::post('/sanctum/token', 'GenerateTaken');
 // Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
 
 Route::middleware(['auth:sanctum'])->group(function () {
-Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
-Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
+      //list users
+      Route::get('/users', 'UserController@index');
 
-Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
-//evaluations routes
-Route::post('/evaluation', 'EvaluationController@store');
+      Route::get('/user/{user}', 'UserController@show');
+        Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
-Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+        Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
 
-Route::get('/users/{role}/{id}', 'UserController@getUsers');
+        Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
+        //evaluations routes
+        Route::post('/evaluation', 'EvaluationController@store');
 
-Route::get('/user/{user}', 'UserController@show');
+        Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+
+        Route::get('/users/{role}/{id}', 'UserController@getUsers');
+
+
 
 Route::get('/criteria/role/{id}/{rid}', 'CriteriaController@getByRole');
 
