@@ -2,9 +2,9 @@
 
 namespace App\Services\Role_Criterias;
 
+use App\Models\User;
 use App\Repositories\RoleCriteriaRepository;
 use App\Models\Criteria;
-use App\Models\User;
 
 
 class RetrivingRoleCriteriasService
@@ -27,18 +27,26 @@ class RetrivingRoleCriteriasService
      *
      * @return array
      */
-    public function execute($roleId)
+    public function execute($roleId, $userId)
     {
         // if($this->repo->getAllById($roleId) != null&&$this->repo->count()>0){
-            $user=User::find(Auth::id());
-            dd($user);
+
+
             $criteriasId = [];
+            $user = User::find($userId);
             $roleCriterias = $this->repo->getAllById($roleId);
             foreach ($roleCriterias as $value){
                 array_push($criteriasId,$value->criteria_id);
             }
+            if(($user->hasRole('Manager')) || ($user->hasRole('Senior Developer'))){
+                $criterias = Criteria::whereIn('id',$criteriasId)->where('type_id',1)->get();
+            }
+            else{
+                $criterias = Criteria::whereIn('id',$criteriasId)->where('type_id',2)->get();
+                // dd($criterias);
+            }
 
-            $criterias = Criteria::whereIn('id',$criteriasId)->get();
+            
             return $criterias;
         // }
         // else
