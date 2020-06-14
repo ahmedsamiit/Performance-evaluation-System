@@ -14,6 +14,8 @@ use App\Services\Users\DeletingUserService;
 use App\Services\Users\StoringUserService;
 use App\Services\Users\UpdatingUserService;
 use App\Services\Users\RetrivingUsersBySupervisorService;
+use App\Services\Users\RetriveTrashedUsersService;
+use App\Services\Users\RestoreTrashedUserService;
 
 
 
@@ -57,7 +59,17 @@ class UserController extends Controller
     public function getUsers($role, $id, RetrivingUsersBySupervisorService $service)
     {
         return $service->execute($role, $id);
-        // return  ResourcesUser::collection($output);
+
+    }
+    public function trash(RetriveTrashedUsersService $service){
+        $output= $service->execute();
+        return  ResourcesUser::collection($output);
+        // return $service->execute();
+
+    }
+    public function restore( $id , RestoreTrashedUserService $service){
+        
+        return $service->execute($id);
 
     }
 

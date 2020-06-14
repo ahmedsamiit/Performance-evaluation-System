@@ -27,6 +27,10 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
     //list users
     Route::get('/users', 'UserController@index');
+    //list trash
+    Route::get('/users/trash', 'UserController@trash');
+    //restore deleted user
+    Route::get('/user/trash/{id}', 'UserController@restore');
     // create one user
     Route::post('/user', 'UserController@store');
     // list single user
@@ -110,3 +114,5 @@ Route::get('/user/{user}', 'UserController@show');
 Route::get('/criteria/role/{id}/{rid}', 'CriteriaController@getByRole');
 
 });
+
+
