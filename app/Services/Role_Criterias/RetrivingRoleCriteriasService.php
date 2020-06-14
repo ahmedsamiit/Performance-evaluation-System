@@ -30,7 +30,8 @@ class RetrivingRoleCriteriasService
     public function execute($roleId, $userId)
     {
         // if($this->repo->getAllById($roleId) != null&&$this->repo->count()>0){
-            
+
+
             $criteriasId = [];
             $user = User::find($userId);
             $roleCriterias = $this->repo->getAllById($roleId);
@@ -42,7 +43,7 @@ class RetrivingRoleCriteriasService
             }
             else{
                 $criterias = Criteria::whereIn('id',$criteriasId)->where('type_id',2)->get();
-                dd($criterias);
+                // dd($criterias);
             }
 
             

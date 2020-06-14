@@ -19,9 +19,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
+// Route::get('/users/{role}/{id}', 'UserController@getUsers');
 
 
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
+
 
     //list users
     Route::get('/users', 'UserController@index');
@@ -42,11 +44,11 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
     // edit role
     Route::put('/role/{role}', 'RoleController@update');
     //delete role
-    Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
+    // Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 
     Route::post('/evaluation_cycle', 'Evaluation_CycleController@store');
 
-    Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
+    // Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
 
     Route::put('/evaluation_cycle/{id}', 'Evaluation_CycleController@update');
 
@@ -93,12 +95,18 @@ Route::post('/sanctum/token', 'GenerateTaken');
 Route::middleware([ 'auth:sanctum'])->group(function () {
 Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
+Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
+
+Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
 //evaluations routes
 Route::post('/evaluation', 'EvaluationController@store');
 
 Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
 
 Route::get('/users/{role}/{id}', 'UserController@getUsers');
+
 Route::get('/user/{user}', 'UserController@show');
+
+Route::get('/criteria/role/{id}/{rid}', 'CriteriaController@getByRole');
+
 });
-//   
