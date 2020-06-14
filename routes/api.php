@@ -97,7 +97,7 @@ Route::post('/sanctum/token', 'GenerateTaken');
 //list indicators for specific user
 // Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
 
-Route::middleware([ 'auth:sanctum'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
 Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
 Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
