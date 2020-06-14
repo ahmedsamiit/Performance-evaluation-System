@@ -1,27 +1,27 @@
 <?php
 
-namespace App\Services\Criterias;
+namespace App\Services\Users;
 
-use App\Repositories\CriteriaRepository;
+use App\Repositories\UserRepository;
+use Spatie\Permission\Models\Role;
 
-
-class StoringTrashedCriteriaService
+class RestoreTrashedUserService
 {
     protected $repo;
 
     /**
-     * Creating criteriaService instance
+     * Creating UserService instance
      *
-     * @param criteriarepository $repo
+     * @param Userepository $repo
      */
-    public function __construct(CriteriaRepository $repo)
+    public function __construct(UserRepository $repo)
     {
         $this->repo = $repo;
     }
 
-
+    
     /**
-     * storing a trashed criteria service
+     * retrieving all users service
      *
      * @return array
      */
@@ -29,7 +29,6 @@ class StoringTrashedCriteriaService
     {
       
         if($this->repo->restoreTrash($id) != null&&$this->repo->count()>0){
-            // return $this->repo->restoreTrash($id);
             return response()->json([
             "message" => "criteria restored"
             ]);
@@ -40,9 +39,6 @@ class StoringTrashedCriteriaService
                 "message" => "criteria not found"
             ], 404);
         }
-   }
-       
 
-
-   
+    }
 }
