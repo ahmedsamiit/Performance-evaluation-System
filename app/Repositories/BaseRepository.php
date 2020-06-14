@@ -89,6 +89,11 @@ class BaseRepository
         return $this->model->where('id', $id)->first();
     }
 
+    public function getAllById(int $id)
+    {
+        return $this->model->where('role_id', $id)->get();
+    }
+
     /**
      * Returns the first row of the selected resource
      * @return Model
@@ -174,9 +179,9 @@ class BaseRepository
     }
 
     // to get user criterias evaluation 
-    public function getByUserAndCycle($userId, $cycleId){
-        return $this->model->where ('user_id',$userId )
-        ->where('cycle_id', $cycleId)
+    public function getByUserAndCycle($user_id,$cycle_id){
+        return $this->model->where ('user_id',$user_id )
+        ->where('cycle_id', $cycle_id)
         ->get();
     }
     public function getTrash(){

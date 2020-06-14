@@ -3,7 +3,7 @@
 namespace App\Services\Evaluation_Cycles;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
-use App\Models\Evaluuatin_Cycle;
+use App\Models\Evaluation_Cycle;
 
 use App\Repositories\Evaluation_CycleRepository;
 use Carbon\Carbon;

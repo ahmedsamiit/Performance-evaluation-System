@@ -3,6 +3,7 @@
 namespace App\Services\Users;
 
 use App\Repositories\UserRepository;
+use Spatie\Permission\Models\Role;
 
 class RetrievingAllUsersService
 {
