@@ -41,9 +41,10 @@ class RetrivingRoleCriteriasService
             if(($user->hasRole('Manager')) || ($user->hasRole('Senior Developer'))){
                 $criterias = Criteria::whereIn('id',$criteriasId)->where('type_id',1)->get();
             }
-            else{
+            elseif($user->hasRole('ProductOwner')){ 
                 $criterias = Criteria::whereIn('id',$criteriasId)->where('type_id',2)->get();
-                // dd($criterias);
+            } else{ 
+                $criterias = Criteria::whereIn('id',$criteriasId)->whereIn('type_id',[2,3])->get();
             }
 
             
