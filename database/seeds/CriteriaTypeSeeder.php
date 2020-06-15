@@ -18,6 +18,7 @@ class CriteriaTypeSeeder extends Seeder
         }else{
         CriteriaType::create(['type'=> 'direct']);
         CriteriaType::create(['type'=> 'average']);
+        CriteriaType::create(['type'=> 'average by team']);
         CriteriaType::create(['type'=> 'mathemtical']);
         }
     }

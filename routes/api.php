@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
 
-    // //list users
+    //list users
     // Route::get('/users', 'UserController@index');
     //list trash
     Route::get('/users/trash', 'UserController@trash');
@@ -102,10 +102,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
       Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
       Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
-
-      Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
-        //evaluations routes
-      Route::post('/evaluation', 'EvaluationController@store');
 
       Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
 

@@ -22,13 +22,14 @@ class  StoringEvaluationService
         $data = $request->all();
         $user_id = $data['user_id'];
         $evaluator_id= $data['evaluator_id'];
+        $criteria= $data['criteria_id'];
 
         $cycle = Evaluation_Cycle::where('is_current',1)->first();
         $data['cycle_id'] = $cycle->id;
 
         $evaluation_user = DB::table('evaluations')->where('user_id',$user_id)->
         where('cycle_id',$cycle->id)
-        ->where('evaluator_id',$evaluator_id)->exists();
+        ->where('evaluator_id',$evaluator_id)->where('criteria_id',$criteria)->exists();
         if($evaluation_user){
             return  response()->json(['error_message'=>'you evaluate employee before']);
         }
