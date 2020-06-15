@@ -92,33 +92,31 @@ Route::middleware([ 'auth:sanctum','isAdmin'])->group(function () {
 
 Route::post('/sanctum/token', 'GenerateTaken');
 
-// user_indicators middleware
-// Route::post('/evaluations', 'User_IndicatorController@create');
-//list indicators for specific user
-// Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');
-
 Route::middleware(['auth:sanctum'])->group(function () {
 
       //list users
       Route::get('/users', 'UserController@index');
 
       Route::get('/user/{user}', 'UserController@show');
-        Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
-        Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
+      Route::get('/criteriatypes','Criteria_TypeContoller@index');
 
-        Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
+      Route::get('/evaluation_cycle/{id}', 'Evaluation_CycleController@show');
+
+      Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
         //evaluations routes
-        Route::post('/evaluation', 'EvaluationController@store');
+      Route::post('/evaluation', 'EvaluationController@store');
 
-        Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
+      Route::get('/evaluation/{userId}/{cycleId}', 'EvaluationController@getEvaluation');
 
-        Route::get('/users/{role}/{id}', 'UserController@getUsers');
+      Route::get('/users/{role}/{id}', 'UserController@getUsers');
 
-
-
-Route::get('/criteria/role/{id}/{rid}', 'CriteriaController@getByRole');
+      Route::get('/criteria/role/{id}/{rid}', 'CriteriaController@getByRole');
 
 });
 
 
+// user_indicators middleware
+// Route::post('/evaluations', 'User_IndicatorController@create');
+//list indicators for specific user
+// Route::get('/evaluation/{id}', 'User_IndicatorController@getUserIndicators');

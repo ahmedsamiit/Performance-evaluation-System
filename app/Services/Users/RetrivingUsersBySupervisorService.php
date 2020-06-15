@@ -4,7 +4,7 @@ namespace App\Services\Users;
 
 use App\Repositories\UserRepository;
 use  Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 
 class RetrivingUsersBySupervisorService
@@ -53,7 +53,7 @@ class RetrivingUsersBySupervisorService
             return $users;
         }
         elseif ($role == 'DevOps'){
-            $user = $this->model->role($role)->get(); 
+            $users = User::role($role)->get(); 
             return $users;
         }
             
