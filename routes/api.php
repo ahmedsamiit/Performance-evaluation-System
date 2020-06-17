@@ -108,6 +108,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
       Route::get('/users/{role}/{id}', 'UserController@getUsers');
 
       Route::get('/criteria/role/{id}/{rid}', 'CriteriaController@getByRole');
+     
+      Route::get('/evaluation_cycles', 'Evaluation_CycleController@index');
+
+      Route::post('/evaluation', 'EvaluationController@store'); 
+
+
 
 });
 
